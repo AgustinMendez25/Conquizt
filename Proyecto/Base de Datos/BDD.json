@@ -1,0 +1,40 @@
+{
+
+    "jugadores": {
+
+        "info" : "*",
+        "idjugador" : "*",
+        "ptsacumulados" : "*", 
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"partida": {
+
+        "territorio" : "*",
+        "datosjugador" : "*",
+        "catseleccionada" : "*",
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"preguntas" : {
+
+        "idpregunta" : "*",
+        "pregunta" : "*",
+        "dificultad" : "*",
+        "categoria" : "*",
+        "interfaz" : "*",
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"categoria" : {
+
+        "idcategoria" : "*",
+        "tipocategoria" : "*",
+        "file" : "usoBDD.js"
+
+    }
+
+}
