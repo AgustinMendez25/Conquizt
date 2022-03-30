@@ -1,0 +1,52 @@
+{
+
+    "categoria1" : {
+
+        "idcategoria" : "1",
+        "tipocategoria" : "CINE",
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"categoria2" : {
+
+        "idcategoria" : "2",
+        "tipocategoria" : "HISTORIA",
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"categoria3" : {
+
+        "idcategoria" : "3",
+        "tipocategoria" : "DEPORTES",
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"categoria4" : {
+
+        "idcategoria" : "4",
+        "tipocategoria" : "CIENCIA",
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"categoria5" : {
+
+        "idcategoria" : "5",
+        "tipocategoria" : "*",
+        "file" : "usoBDD.js"
+
+    }
+
+    
+    ,"categoria6" : {
+
+        "idcategoria" : "5",
+        "tipocategoria" : "*",
+        "file" : "usoBDD.js"
+
+    }
+
+}

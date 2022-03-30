@@ -1,0 +1,47 @@
+{
+
+    "jugadores1": {
+
+        "nombre" : "juanchotalarga69",
+        "idjugador" : "1",
+        "ptsacumulados" : "12", 
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"jugadores2": {
+
+        "nombre" : "kerrycaberga15",
+        "idjugador" : "2",
+        "ptsacumulados" : "9", 
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"jugadores3": {
+
+        "nombre" : "carlosgamer69",
+        "idjugador" : "3",
+        "ptsacumulados" : "18", 
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"jugadores4": {
+
+        "nombre" : "fernanelcrack",
+        "idjugador" : "4",
+        "ptsacumulados" : "13", 
+        "file" : "usoBDD.js"
+
+    }
+
+    ,"jugadores5": {
+
+        "nombre" : "chingchong392",
+        "idjugador" : "5",
+        "ptsacumulados" : "2", 
+        "file" : "usoBDD.js"
+
+    }
+}
