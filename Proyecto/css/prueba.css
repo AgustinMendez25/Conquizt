@@ -1,0 +1,157 @@
+*{
+    margin:0;
+    padding:0;
+    -webkit-backface-visibility:hidden;
+}
+
+/*WRAPPER*/
+.wrapper{
+    position:relative;
+    margin:20px auto;
+    width:3670px;
+}
+
+/*MAIN CIRCLE*/
+.circle{
+    position:relative;
+    margin-top:30px;
+    margin-bottom:20px;
+    margin-left:25px;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:#093b62;
+}
+
+/*MAIN CIRCLE*/
+.circle{
+    position:relative;
+    margin-top:30px;
+    margin-bottom:20px;
+    margin-left:25px;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:#093b62;
+    box-shadow:inset 0px 0px 30px rgba(0,0,0,0.3);
+    -webkit-box-shadow:inset 0px 0px 30px rgba(0,0,0,0.3);
+    -webkit-transition:all 2s ease;
+    -moz-transition:all 2s ease;
+    -ms-transition:all 2s ease;
+    -o-transition:all 2s ease;
+    transition:all 2s ease;
+}
+
+.menu a{
+    margin-right:-4px;
+    padding:10px 30px;
+    width:50px;
+    color:#333;
+    text-decoration:none;
+    font:15px/25pxHelvetica,Arial,sans-serif;
+}
+
+.menu a:hover{
+    background:#eee;
+}
+
+/*LITTLE CIRCLES*/
+.circle li{
+    position:absolute;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:white;
+    list-style:none;
+    text-align:center;
+    font:20px/50pxHelvetica,Arial,sans-serif;
+    }
+
+.circle li:nth-child(1){
+    top:15px;
+    left:125px;
+}
+.circle li:nth-child(2){
+    top:125px;
+    left:235px;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    -o-transform:rotate(90deg);
+    transform:rotate(90deg);
+}
+.circle li:nth-child(3){
+    top:235px;
+    left:125px;
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+.circle li:nth-child(4){
+    top:125px;
+    left:15px;
+    -webkit-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    transform:rotate(270deg);
+}
+
+/*INNER CIRCLE*/
+.wrapper:before{
+    content:"DS";
+    text-align:center;
+    font:70px/135pxGeorgia,Times,serif;
+    color:#efefef;
+    position:absolute;
+    top:140px;
+    left:110px;
+    z-index:10;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:#fff;
+    -webkit-box-shadow:3px 3px 10px rgba(0,0,0,0.3);
+    box-shadow:3px 3px 10px rgba(0,0,0,0.3);
+}
+
+.menu > .two:hover ~ .circle{
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    transform:rotate(-90deg);
+}
+
+/*HOVER STATES*/
+.menu > .one:hover ~ .circle{
+    -webkit-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+    transform:rotate(0deg);
+}
+.menu > .two:hover ~ .circle{
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    transform:rotate(-90deg);
+}
+.menu > .three:hover ~ .circle{
+    -webkit-transform:rotate(-180deg);
+    -moz-transform:rotate(-180deg);
+    -ms-transform:rotate(-180deg);
+    -o-transform:rotate(-180deg);
+    transform:rotate(-180deg);
+}
+.menu > .four:hover ~ .circle{
+    -webkit-transform:rotate(-270deg);
+    -moz-transform:rotate(-270deg);
+    -ms-transform:rotate(-270deg);
+    -o-transform:rotate(-270deg);
+    transform:rotate(-270deg);
+}
+

@@ -16,7 +16,6 @@ body {
 }
 
 .contenedor{
-    background-image: url(../img/fondo.png);
     height:100vw;
 }
 
@@ -31,97 +30,111 @@ body {
 
 /*--------------------------Menu---------------------------*/
 
-.titulo-conquizt-prueba {
-    padding: 3vh 0;
-    font-size: 100px;
-    font-weight: 50;
-    /*text-decoration: underline;*/
-    font-family: 'Junge', serif;
-}
-
-/*Titulo de la tarjeta*/
-.titulo-descripcion-prueba{
-    color: white;
-    padding: 12px 0;
-    font-weight: 100 ;
-    font-size: 52px;
-}
-
-/* tarjeta*/
-.tarjeta-descripcion-prueba{
-    border-radius: 10px;
-    margin: auto;
-    width: 50%;
-}
-
-/*imagen tarjeta*/
-.tarjeta-descripcion-prueba img{
-    border-radius: 5px;
-    height: 280px;
-    width: 380px;
-}
-
-/*Descripcion en la tarjeta*/
-.tarjeta-descripcion-prueba p{
-    padding: 15px 40px;
-    font-weight: 100;
-    color: white;
-    font-size: 17px;
-}
-
 .prueba-contenedor {
     display: flex;
 }
 
-.descripcion-menu {
-    text-align: center;
-    width: 60%;
-}
-
 .menu {
-    width: 40%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 @keyframes rotar {
     0%{transform: rotateZ(0deg);}
-    50%{transform: rotateZ(120deg);}
-    100%{transform: rotateZ(240deg);}
+    50%{transform: rotateZ(180deg);}
+    100%{transform: rotateZ(360deg);}
 }
 
+@keyframes rotarPalabras {
+    0%{transform: rotateZ(15deg);left:80h;top:70vh;}
+    
+    5%{transform: rotateZ(45deg);left:74vh;top:60vh;}
+    10%{transform: rotateZ(70deg);left:70vh;top:50vh;}
+    15%{transform: rotateZ(110deg);left:70vh;top:40vh;}
+    20%{transform: rotateZ(135deg);left:74vh;top:30vh;}
+
+    25%{transform: rotateZ(145deg);left:80vh;top:20vh;}
+    30%{transform: rotateZ(170deg);left:88vh;top:16vh;}
+    35%{transform: rotateZ(190deg);left:97vh;top:14vh;}
+    40%{transform: rotateZ(225deg);left:106vh;top:16vh;}
+    
+    45%{transform: rotateZ(235deg);left:115vh;top:20vh;}
+    50%{transform: rotateZ(260deg);left:124vh;top:20vh;}
+    55%{transform: rotateZ(280deg);left:128vh;top:30vh;}
+    60%{transform: rotateZ(300deg);left:128vh;top:40vh;}
+    
+    65%{transform: rotateZ(320deg);left:128vh;top:50vh;}
+    70%{transform: rotateZ(335deg);left:126vh;top:60vh;}
+    75%{transform: rotateZ(350deg);left:124vh;top:70vh;}
+    80%{transform: rotateZ(365deg);left:118vh;top:70vh;}
+    
+    85%{transform: rotateZ(380deg);left:112vh;top:72vh;}
+    90%{transform: rotateZ(395deg);left:102vh;top:74vh;}
+    95%{transform: rotateZ(410deg);left:92vh;top:76vh;}
+    100%{transform: rotateZ(410deg);left:80vh;top:70vh;}
+}
 
 .rueda-menu {
-    height: 1200px;
-    width: 1200px;
-    border-radius: 600px;
-    background-color: rgba(0, 0, 0, 0.699);
-    position: absolute;
-    right: -500px;
-    top: -200px;
-    /*background: linear-gradient(red, yellow);*/
+    height: 80vh;
+    width: 80vh;
+    border-radius: 50vh;
+    background-color: rgb(73, 48, 25);
     animation-name: rotar;
-    animation-duration: 1s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
 }
 
 .items-menu a {
     font-size: 52px;
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     position: absolute;
-    right: 150px;
 }
 
 .item-menu-1 {
-    top:200px;
-    transform: rotateZ(15deg);
+    top: 20vh;
+    left: 124vh;
+    transform: rotateZ(45deg);
+    animation-name: rotarPalabras;
+    animation-duration: 10s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
 }
 
 .item-menu-2 {
-    top: 350px;
+    top: 20vh;
+    left: 80vh;
+    transform: rotateZ(-45deg);
+    animation-name: rotarPalabras;
+    animation-duration: 10s;
+    animation-delay: 2.5s;
+    animation-iteration-count: infinite;
 }
 
 .item-menu-3 {
-    top:500px;
-    transform: rotateZ(-15deg);
+    top: 70vh;
+    left: 80vh;
+    transform: rotateZ(45deg);
+    animation-name: rotarPalabras;
+    animation-duration: 10s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
 }
+
+.item-menu-4 {
+    top: 70vh;
+    left: 124vh;
+    transform: rotateZ(-45deg);
+    animation-name: rotarPalabras;
+    animation-duration: 10s;
+    animation-delay: 7.5s;
+    animation-iteration-count: infinite;
+}
+
+
+/*--------------------------PRUEBA---------------------------*/
+
