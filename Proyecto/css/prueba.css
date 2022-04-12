@@ -4,26 +4,12 @@
     -webkit-backface-visibility:hidden;
 }
 
-/*WRAPPER*/
+/*Contenedor*/
 .wrapper{
     position:relative;
-    margin:20px auto;
-    width:3670px;
 }
 
-/*MAIN CIRCLE*/
-.circle{
-    position:relative;
-    margin-top:30px;
-    margin-bottom:20px;
-    margin-left:25px;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    background:#093b62;
-}
-
-/*MAIN CIRCLE*/
+/*Circulo Principal*/
 .circle{
     position:relative;
     margin-top:30px;
@@ -34,28 +20,20 @@
     border-radius:50%;
     background:#093b62;
     box-shadow:inset 0px 0px 30px rgba(0,0,0,0.3);
-    -webkit-box-shadow:inset 0px 0px 30px rgba(0,0,0,0.3);
-    -webkit-transition:all 2s ease;
-    -moz-transition:all 2s ease;
-    -ms-transition:all 2s ease;
-    -o-transition:all 2s ease;
-    transition:all 2s ease;
+    animation: rotar 8s linear infinite;
 }
 
-.menu a{
-    margin-right:-4px;
-    padding:10px 30px;
-    width:50px;
-    color:#333;
-    text-decoration:none;
-    font:15px/25pxHelvetica,Arial,sans-serif;
+@keyframes rotar {
+    100%{
+        -webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -ms-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);
+    }
 }
 
-.menu a:hover{
-    background:#eee;
-}
-
-/*LITTLE CIRCLES*/
+/*Mini Circulos*/
 .circle li{
     position:absolute;
     width:50px;
@@ -64,49 +42,35 @@
     background:white;
     list-style:none;
     text-align:center;
-    font:20px/50pxHelvetica,Arial,sans-serif;
-    }
+    font:20px/50px Helvetica,Arial,sans-serif;
+    animation: rotar 4s linear reverse infinite;
+}
 
-.circle li:nth-child(1){
+.circle #li-1{
     top:15px;
     left:125px;
 }
-.circle li:nth-child(2){
+.circle #li-2{
     top:125px;
     left:235px;
-    -webkit-transform:rotate(90deg);
-    -moz-transform:rotate(90deg);
-    -ms-transform:rotate(90deg);
-    -o-transform:rotate(90deg);
-    transform:rotate(90deg);
 }
-.circle li:nth-child(3){
+.circle #li-3{
     top:235px;
     left:125px;
-    -webkit-transform:rotate(180deg);
-    -moz-transform:rotate(180deg);
-    -ms-transform:rotate(180deg);
-    -o-transform:rotate(180deg);
-    transform:rotate(180deg);
 }
-.circle li:nth-child(4){
+.circle #li-4{
     top:125px;
     left:15px;
-    -webkit-transform:rotate(270deg);
-    -moz-transform:rotate(270deg);
-    -ms-transform:rotate(270deg);
-    -o-transform:rotate(270deg);
-    transform:rotate(270deg);
 }
 
-/*INNER CIRCLE*/
+/*Circulo Interior*/
 .wrapper:before{
     content:"DS";
     text-align:center;
-    font:70px/135pxGeorgia,Times,serif;
+    font:70px/135px Georgia,Times,serif;
     color:#efefef;
     position:absolute;
-    top:140px;
+    top:85px;
     left:110px;
     z-index:10;
     width:130px;
@@ -116,42 +80,3 @@
     -webkit-box-shadow:3px 3px 10px rgba(0,0,0,0.3);
     box-shadow:3px 3px 10px rgba(0,0,0,0.3);
 }
-
-.menu > .two:hover ~ .circle{
-    -webkit-transform:rotate(-90deg);
-    -moz-transform:rotate(-90deg);
-    -ms-transform:rotate(-90deg);
-    -o-transform:rotate(-90deg);
-    transform:rotate(-90deg);
-}
-
-/*HOVER STATES*/
-.menu > .one:hover ~ .circle{
-    -webkit-transform:rotate(0deg);
-    -moz-transform:rotate(0deg);
-    -ms-transform:rotate(0deg);
-    -o-transform:rotate(0deg);
-    transform:rotate(0deg);
-}
-.menu > .two:hover ~ .circle{
-    -webkit-transform:rotate(-90deg);
-    -moz-transform:rotate(-90deg);
-    -ms-transform:rotate(-90deg);
-    -o-transform:rotate(-90deg);
-    transform:rotate(-90deg);
-}
-.menu > .three:hover ~ .circle{
-    -webkit-transform:rotate(-180deg);
-    -moz-transform:rotate(-180deg);
-    -ms-transform:rotate(-180deg);
-    -o-transform:rotate(-180deg);
-    transform:rotate(-180deg);
-}
-.menu > .four:hover ~ .circle{
-    -webkit-transform:rotate(-270deg);
-    -moz-transform:rotate(-270deg);
-    -ms-transform:rotate(-270deg);
-    -o-transform:rotate(-270deg);
-    transform:rotate(-270deg);
-}
-
