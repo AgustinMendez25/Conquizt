@@ -1,11 +1,13 @@
 * {
     padding: 0;
     margin: 0;
+    -webkit-backface-visibility:hidden;
 }
 
 body {
     overflow-y: hidden;
     overflow-x: hidden;
+    background-image: url(../img/fondo.jpg);
 }
 
 .titulo-conquizt {
@@ -27,114 +29,120 @@ body {
     background-color: grey;
 }
 
+/*----------------------------Busqueda Jugadores-----------------------*/
 
-/*--------------------------Menu---------------------------*/
-
-.prueba-contenedor {
-    display: flex;
+.jugadorBusqueda{
+    font:26px Helvetica,Arial,sans-serif;
+    color: #e0dcdc;
 }
 
-.menu {
-    width: 100vw;
-    height: 100vh;
+.circle #li-busqueda-1{
+    top:50%;
+    left:50%;
+    margin-left: -100px;
+    margin-top: -230px;
+}
+.circle #li-busqueda-2{
+    top:50%;
+    left:50%;
+    margin-left: 105px;
+    margin-top: -25px;
+    transform:rotate(90deg);
+}
+.circle #li-busqueda-3{
+    top:50%;
+    left:50%;
+    margin-left: -100px;
+    margin-top: 180px;
+    transform:rotate(180deg);   
+}
+.circle #li-busqueda-4{
+    top:50%;
+    left:50%;
+    margin-left: -305px;
+    margin-top: -25px;
+    transform:rotate(270deg);
+}
+
+.wrapper-busqueda:before {
+    content:"Buscando Partida...";
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    background:rgb(233, 230, 230);
+    animation: none;
+    color:#363636;
+    font:34px Helvetica,Arial,sans-serif;
 }
 
+/*----------------------------Configuracion Partida-----------------------*/
 
-@keyframes rotar {
-    0%{transform: rotateZ(0deg);}
-    50%{transform: rotateZ(180deg);}
-    100%{transform: rotateZ(360deg);}
+.wrapper-config{
+    position:relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
 }
 
-@keyframes rotarPalabras {
-    0%{transform: rotateZ(15deg);left:80h;top:70vh;}
-    
-    5%{transform: rotateZ(45deg);left:74vh;top:60vh;}
-    10%{transform: rotateZ(70deg);left:70vh;top:50vh;}
-    15%{transform: rotateZ(110deg);left:70vh;top:40vh;}
-    20%{transform: rotateZ(135deg);left:74vh;top:30vh;}
-
-    25%{transform: rotateZ(145deg);left:80vh;top:20vh;}
-    30%{transform: rotateZ(170deg);left:88vh;top:16vh;}
-    35%{transform: rotateZ(190deg);left:97vh;top:14vh;}
-    40%{transform: rotateZ(225deg);left:106vh;top:16vh;}
-    
-    45%{transform: rotateZ(235deg);left:115vh;top:20vh;}
-    50%{transform: rotateZ(260deg);left:124vh;top:20vh;}
-    55%{transform: rotateZ(280deg);left:128vh;top:30vh;}
-    60%{transform: rotateZ(300deg);left:128vh;top:40vh;}
-    
-    65%{transform: rotateZ(320deg);left:128vh;top:50vh;}
-    70%{transform: rotateZ(335deg);left:126vh;top:60vh;}
-    75%{transform: rotateZ(350deg);left:124vh;top:70vh;}
-    80%{transform: rotateZ(365deg);left:118vh;top:70vh;}
-    
-    85%{transform: rotateZ(380deg);left:112vh;top:72vh;}
-    90%{transform: rotateZ(395deg);left:102vh;top:74vh;}
-    95%{transform: rotateZ(410deg);left:92vh;top:76vh;}
-    100%{transform: rotateZ(410deg);left:80vh;top:70vh;}
+.seleccion{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
-.rueda-menu {
-    height: 80vh;
-    width: 80vh;
-    border-radius: 50vh;
-    background-color: rgb(73, 48, 25);
-    animation-name: rotar;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-}
-
-.items-menu a {
-    font-size: 52px;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
+.conf-jugador {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 50%;
+    left:50%;
+    background-color: #141414;
+    width: 360px;
+    height: 360px;
+    margin-left: -180px;
+    margin-top: -180px;
+    border-radius: 50%;
 }
 
-.item-menu-1 {
-    top: 20vh;
-    left: 124vh;
-    transform: rotateZ(45deg);
-    animation-name: rotarPalabras;
-    animation-duration: 10s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
+.botonesAgregado {
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
 }
 
-.item-menu-2 {
-    top: 20vh;
-    left: 80vh;
-    transform: rotateZ(-45deg);
-    animation-name: rotarPalabras;
-    animation-duration: 10s;
-    animation-delay: 2.5s;
-    animation-iteration-count: infinite;
+.botonAgregar {
+    background-color: #e4e4e4;
+    padding: 12px 16px;
 }
 
-.item-menu-3 {
-    top: 70vh;
-    left: 80vh;
-    transform: rotateZ(45deg);
-    animation-name: rotarPalabras;
-    animation-duration: 10s;
-    animation-delay: 5s;
-    animation-iteration-count: infinite;
+.detalles-faccion{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.item-menu-4 {
-    top: 70vh;
-    left: 124vh;
-    transform: rotateZ(-45deg);
-    animation-name: rotarPalabras;
-    animation-duration: 10s;
-    animation-delay: 7.5s;
-    animation-iteration-count: infinite;
+.detallesCard{
+    background-color: #c4c2c2;
+    margin: 0 20%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 14px;
 }
 
+.detallesCard h4{
+    font:26px Helvetica,Arial,sans-serif;
+    padding: 16px;
+    color: #141414;
+}
 
-/*--------------------------PRUEBA---------------------------*/
+.detallesCard p{
+    text-align: start;
+    padding: 20px;
+}
 
