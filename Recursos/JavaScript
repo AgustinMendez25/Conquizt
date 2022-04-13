@@ -1,0 +1,63 @@
+// INSERTAR MONGODB EN JAVASCRIPT
+
+const MongoClient = require('mongodb').MongoClient;
+const test = require('assert');
+
+const url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+
+  if (err) throw err;
+  console.log("Base de Datos creada");
+  db.close();
+
+});
+
+// AGREGAR REGISTROS
+
+const MongoClient = require('mongodb').MongoClient;
+const test = require('assert');
+
+const url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+
+    if (err) throw err;
+    var dbo = db.db("mydb");
+
+    var jugador1 = {};
+    var jugador2 = {};
+    var jugador3 = {};
+    var jugador4 = {};
+    var jugador5 = {};
+
+    dbo.collection("customers").insertOne(jugador1, function(err, res) {
+      if (err) throw err;
+      console.log("1 documento agregado");
+      db.close();
+    });
+
+    dbo.collection("customers").insertOne(jugador2, function(err, res) {
+        if (err) throw err;
+        console.log("1 documento agregado");
+        db.close();
+      });
+
+    dbo.collection("customers").insertOne(jugador3, function(err, res) {
+        if (err) throw err;
+        console.log("1 documento agregado");
+        db.close();
+    });
+
+    dbo.collection("customers").insertOne(jugador4, function(err, res) {
+        if (err) throw err;
+        console.log("1 documento agregado");
+        db.close();
+    });
+
+    dbo.collection("customers").insertOne(jugador5, function(err, res) {
+        if (err) throw err;
+        console.log("1 documento agregado");
+        db.close();
+    });
+});
