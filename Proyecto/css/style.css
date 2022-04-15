@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
 }
 
 body {
