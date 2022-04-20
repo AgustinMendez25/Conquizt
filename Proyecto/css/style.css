@@ -93,7 +93,78 @@ body {
     position: relative;
 }
 
+/*--Rueda facciones--*/
+
+.rueda-facciones{
+    width:600px;
+    height:600px;
+    animation: rotar 24s reverse linear infinite;
+}
+
+.faccion-li {
+    display: inline-block;
+    font:26px Helvetica,Arial,sans-serif;
+    color: #e0dcdc;
+    background-color: #141414;
+    height: 44px!important;
+    width: 44px!important;
+}
+
+.rueda-facciones #li-faccion-1{
+    top:50%;
+    left:50%;
+    margin-left: -175px;
+    margin-top: -250px;
+    transform:rotate(-30deg);
+}
+.rueda-facciones #li-faccion-2{
+    top:50%;
+    left:50%;
+    margin-left: 130px;
+    margin-top: -250px;
+    transform:rotate(30deg);
+}
+.rueda-facciones #li-faccion-3{
+    top:50%;
+    left:50%;
+    margin-left: 252px;
+    margin-top: -25px;
+    transform:rotate(90deg);   
+}
+.rueda-facciones #li-faccion-4{
+    top:50%;
+    left:50%;
+    margin-left: -297px;
+    margin-top: -25px;
+    transform:rotate(270deg);
+}
+.rueda-facciones #li-faccion-5{
+    top:50%;
+    left:50%;
+    margin-left: -197px;
+    margin-top: 190px;
+    transform:rotate(210deg);
+}
+.rueda-facciones #li-faccion-6{
+    top:50%;
+    left:50%;
+    margin-left: 152px;
+    margin-top: 190px;
+    transform:rotate(150deg);
+}
+
+/*--Circulo Chico jugadores de la partida--*/
+
+.circulo-jugadores{
+    animation: rotar 14s linear infinite;
+    margin-top:50px;
+    margin-left:50px;
+}
+
+/*--Circulo Chico Conf del jugador--*/
+
 .conf-jugador {
+    z-index: 10;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -104,10 +175,10 @@ body {
     background-color: #141414;
     width: 360px;
     height: 360px;
-    margin-left: -180px;
-    margin-top: -180px;
+    margin-left: -168px;
+    margin-top: -175px;
     border-radius: 50%;
-    animation: rotar 14s reverse linear infinite;
+    animation: none /*-----------*/
 }
 
 .conf-jugador h5 {
@@ -127,6 +198,8 @@ body {
     background-color: #e4e4e4;
     padding: 12px 20px;
 }
+
+/*--Tarjeta descripcion de faccion--*/
 
 .detalles-faccion{
     width: 50%;
@@ -152,4 +225,4 @@ body {
 .detallesCard p{
     text-align: start;
     padding: 20px;
-}
+} 
