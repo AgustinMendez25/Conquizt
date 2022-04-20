@@ -1,0 +1,198 @@
+* {
+    padding: 0;
+    margin: 0;
+    backface-visibility:hidden;
+}
+
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-image: url(../img/fondo.jpg);
+}
+
+.titulo-conquizt {
+    padding: 16vh;
+    text-align: center;
+    font-size: 128px;
+    font-weight: 600;
+}
+
+.contenedor{
+    height:100vw;
+}
+
+.circulo-central {
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    border-radius: 200px;
+    background-color: grey;
+}
+
+/*----------------------------Busqueda Jugadores-----------------------*/
+
+.jugadorBusqueda{
+    font:26px Helvetica,Arial,sans-serif;
+    color: #e0dcdc;
+}
+
+.circle #li-busqueda-1{
+    top:50%;
+    left:50%;
+    margin-left: -100px;
+    margin-top: -230px;
+}
+.circle #li-busqueda-2{
+    top:50%;
+    left:50%;
+    margin-left: 105px;
+    margin-top: -25px;
+    transform:rotate(90deg);
+}
+.circle #li-busqueda-3{
+    top:50%;
+    left:50%;
+    margin-left: -100px;
+    margin-top: 180px;
+    transform:rotate(180deg);   
+}
+.circle #li-busqueda-4{
+    top:50%;
+    left:50%;
+    margin-left: -305px;
+    margin-top: -25px;
+    transform:rotate(270deg);
+}
+
+.wrapper-busqueda:before {
+    content:"Buscando Partida...";
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgb(233, 230, 230);
+    animation: none;
+    color:#363636;
+    font:34px Helvetica,Arial,sans-serif;
+}
+
+/*----------------------------Configuracion Partida-----------------------*/
+
+.wrapper-config{
+    position:relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.seleccion{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/*------------------Rueda facciones--------------------*/
+
+.rueda-facciones{
+    width:600px;
+    height:600px;
+    animation: rotar 14s reverse linear infinite;
+}
+
+.jugadorBusqueda{
+    font:26px Helvetica,Arial,sans-serif;
+    color: #e0dcdc;
+}
+
+.rueda-facciones #li-faccion-1{
+    top:50%;
+    left:50%;
+    margin-left: -100px;
+    margin-top: -290px;
+}
+.rueda-facciones #li-faccion-2{
+    top:50%;
+    left:50%;
+    margin-left: 165px;
+    margin-top: -25px;
+    transform:rotate(90deg);
+}
+.rueda-facciones #li-faccion-3{
+    top:50%;
+    left:50%;
+    margin-left: -100px;
+    margin-top: 240px;
+    transform:rotate(180deg);   
+}
+.rueda-facciones #li-faccion-4{
+    top:50%;
+    left:50%;
+    margin-left: -365px;
+    margin-top: -25px;
+    transform:rotate(270deg);
+}
+
+/*----------------Fin rueda facciones------------------*/
+
+.conf-jugador {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 50%;
+    left:50%;
+    background-color: #141414;
+    width: 360px;
+    height: 360px;
+    margin-left: -180px;
+    margin-top: -180px;
+    border-radius: 50%;
+    animation: rotar 14s reverse linear infinite;
+}
+
+.conf-jugador h5 {
+    font:28px Helvetica,Arial,sans-serif;
+    color:white;
+}
+
+.botonesAgregado {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    width: 160px;
+    font:24px Helvetica,Arial,sans-serif;
+}
+
+.botonAgregar {
+    background-color: #e4e4e4;
+    padding: 12px 20px;
+}
+
+.detalles-faccion{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detallesCard{
+    background-color: #c4c2c2;
+    margin: 0 20%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 14px;
+}
+
+.detallesCard h4{
+    font:26px Helvetica,Arial,sans-serif;
+    padding: 16px;
+    color: #141414;
+}
+
+.detallesCard p{
+    text-align: start;
+    padding: 20px;
+} 
