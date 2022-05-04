@@ -6,7 +6,7 @@
 .P-contenedor {
     background-image: url(../img/mapa.jpg);
     background-size:cover;
-    background-position:center center;
+    background-position:center -50px;
     height: 100vh;
     width: 100vw;
     position: relative;
@@ -66,17 +66,17 @@
     height: 23px;
 }
 
-/*----------------------Botones centrales superiores-----------------------*/
+/*----------------------Botones ronda y tiempo-----------------------*/
 
-.contenidoCentralSuperior {
+.div-rondasTiempo {
     position: absolute;
     top: 0;
+    right: 0;
     width: 100px;
-    left: 50%;
     margin-left: -50px;
 }
 
-.contenidoCentralSuperior h5 {
+.div-rondasTiempo h5 {
     background-color: rgb(191, 188, 188);
     display: flex;
     align-items: center;
@@ -89,7 +89,7 @@
     font-size: 18px;
 }
 
-.contenidoCentralSuperior h6 {
+.div-rondasTiempo h6 {
     font-size: 20px;
     text-align: center;
     color: white;
@@ -99,7 +99,7 @@
 
 .ajustes {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
     margin: 5px;
 }
@@ -107,6 +107,59 @@
 .ajustes img {
     height: 36px;
     width: 36px;
+    cursor: pointer;
+}
+
+/*Modal Ajustes*/
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal .modal-caja {
+    width: 500px;
+    height: 500px;
+    background-color: rgb(238, 236, 236);
+    border-radius: 10px;
+    transform: translateY(-30%);
+    transition: all 1.5s ease;
+}
+
+.modal .modal-caja .modal-header {
+    width: 100%;
+    display: flex;
+    padding: 12px 0px;
+    justify-content: space-between;
+    background-color: rgb(17, 68, 112);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal .modal-caja .modal-header h5 {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px black;
+    font-size: 24px;
+    padding: 0px 12px;
+}
+
+.modal .modal-caja .modal-header label {
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 /*-------------------------------Caja texto---------------------------------*/
@@ -116,8 +169,14 @@
     top: 50%;
     left: 50px;
     width: 180px;
+    height:200px;
     background-color: rgba(255, 255, 255, 0.250);
     padding: 12px;
     border-radius:4px;
     color: rgba(0, 0, 0, 0.8)
+}
+
+.caja-texto p {
+    overflow-y: scroll;
+    height: 100%;
 }

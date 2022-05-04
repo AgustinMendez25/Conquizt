@@ -13,11 +13,12 @@
     <div class="wrapper-config">
         <div class="seleccion">
             <div class="conf-jugador">
-                <h5>Nombre Jugador</h5>
                 <div class="botonesAgregado">
                     <div class="botonAgregar">+</div>
                     <div class="botonAgregar">+</div>
                 </div>
+                <input type="text" id="nombreJugador" value="Jugador 1" placeholder="Nombre del Jugador...">
+                <input type="button" id="btnGuardarCJ" value="Guardar">
             </div>
             <div class="circle rueda-facciones">
                 <ul>
@@ -30,10 +31,10 @@
                 </ul>
                 <div class="circle circulo-jugadores">
                     <ul>
-                        <li class="jugadorBusqueda" id="li-busqueda-1">Buscando...</li>
-                        <li class="jugadorBusqueda" id="li-busqueda-2">Buscando...</li>
-                        <li class="jugadorBusqueda" id="li-busqueda-3">Buscando...</li>
-                        <li class="jugadorBusqueda" id="li-busqueda-4">Buscando...</li>
+                        <li class="jugadorBusqueda" id="li-busqueda-1">Jugador 1</li>
+                        <li class="jugadorBusqueda" id="li-busqueda-2">Jugador 2</li>
+                        <li class="jugadorBusqueda" id="li-busqueda-3">Jugador 3</li>
+                        <li class="jugadorBusqueda" id="li-busqueda-4">Jugador 4</li>
                     </ul>
                 </div>
             </div>
@@ -46,5 +47,9 @@
             </div>
         </div>
     </div>
+
+    <!--JS-->
+    <script src="../js/controlConfjugador.js"></script>
+
 </body>
 </html>

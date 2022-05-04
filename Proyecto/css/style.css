@@ -37,6 +37,7 @@ body {
 .jugadorBusqueda{
     font:26px Helvetica,Arial,sans-serif;
     color: #e0dcdc;
+    cursor:pointer;
 }
 
 .circle #li-busqueda-1{
@@ -184,14 +185,20 @@ body {
     animation: none /*-----------*/
 }
 
-.conf-jugador h5 {
+.conf-jugador #nombreJugador {
     font:28px Helvetica,Arial,sans-serif;
     color:white;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 8px 0;
+    border: none;
+    border-bottom: 2px solid rgb(185, 181, 181);
+    text-align: center;
 }
 
 .botonesAgregado {
     display: flex;
-    margin-top: 20px;
+    margin-bottom: 20px;
     justify-content: space-between;
     width: 160px;
     font:24px Helvetica,Arial,sans-serif;
@@ -200,6 +207,16 @@ body {
 .botonAgregar {
     background-color: #e4e4e4;
     padding: 12px 20px;
+}
+
+.conf-jugador #btnGuardarCJ {
+    padding: 8px 18px;
+    margin-top: 20px;
+    background-color: rgb(38, 14, 146);
+    font-size: 18px;
+    border: none;
+    color:#ffffff;
+    cursor: pointer;
 }
 
 /*--Tarjeta descripcion de faccion--*/
