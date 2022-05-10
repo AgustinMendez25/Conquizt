@@ -1,182 +1,40 @@
-* {
-    padding: 0;
-    margin: 0;
-}
+/*------Mensaje de Aviso------*/
 
-.P-contenedor {
-    background-image: url(../img/mapa.jpg);
-    background-size:cover;
-    background-position:center -50px;
-    height: 100vh;
+.partida .partida-mensajeAviso {
+    position: absolute;
     width: 100vw;
-    position: relative;
-}
-
-/*----------------------Jugadores-----------------------*/
-
-.P-contenedor .jugadores {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 20px;
-}
-
-.P-contenedor .jugador {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-}
-
-.P-contenedor .contenedor-imgJugador {
-    width: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-.P-contenedor .jugador img {
-    margin-right: 6px;
-}
-
-.P-contenedor #jugador-1 {
-    font-size: 22px;
-}
-.P-contenedor #jugador-1 img {
-    width: 40px;
-    height: 40px;
-}
-.P-contenedor #jugador-2 {
-    font-size: 20px;
-}
-.P-contenedor #jugador-2 img {
-    width: 33px;
-    height: 33px;
-}
-.P-contenedor #jugador-3 {
-    font-size: 18px;
-}
-.P-contenedor #jugador-3 img {
-    width: 27px;
-    height: 27px;
-}
-.P-contenedor #jugador-4 {
-    font-size: 16px;
-}
-.P-contenedor #jugador-4 img {
-    width: 23px;
-    height: 23px;
-}
-
-/*----------------------Botones ronda y tiempo-----------------------*/
-
-.div-rondasTiempo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    margin-left: -50px;
-}
-
-.div-rondasTiempo h5 {
-    background-color: rgb(191, 188, 188);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-    border: 4px solid black;
-    margin: 6px auto 2px auto;
-    font-size: 18px;
-}
-
-.div-rondasTiempo h6 {
-    font-size: 20px;
     text-align: center;
-    color: white;
+    margin-top: 24px;
+    color: rgb(216, 215, 215);
+    text-shadow: 2px 2px 3px black;
 }
 
-/*-------------------------------Ajustes---------------------------------*/
+.partida .partida-mensajeAviso h2 {
+    font-size: 38px;
+}
 
-.ajustes {
+.partida .partida-mensajeAviso p {
+    margin-top: 8px;
+    font-size: 18px;
+}
+
+.partida #nombreJugadorTurno {
+    color: rgb(5, 43, 77);
+    text-shadow: 1px 1px 3px rgb(171, 168, 218);
+}
+
+
+/*------Mensaje de Aviso------*/
+
+.partida .siguiente-turno {
     position: absolute;
     bottom: 0;
-    right: 0;
-    margin: 5px;
-}
-
-.ajustes img {
-    height: 36px;
-    width: 36px;
-    cursor: pointer;
-}
-
-/*Modal Ajustes*/
-.modal {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 15;
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    transition: all 1s ease;
-    opacity: 0;
-    visibility: hidden;
 }
 
-.modal .modal-caja {
-    width: 500px;
-    height: 500px;
-    background-color: rgb(238, 236, 236);
-    border-radius: 10px;
-    transform: translateY(-30%);
-    transition: all 1.5s ease;
-}
-
-.modal .modal-caja .modal-header {
-    width: 100%;
-    display: flex;
-    padding: 12px 0px;
-    justify-content: space-between;
-    background-color: rgb(17, 68, 112);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.modal .modal-caja .modal-header h5 {
-    color: rgb(255, 255, 255);
-    text-shadow: 1px 1px 2px black;
+.partida .siguiente-turno input {
+    margin-bottom: 20px;
     font-size: 24px;
-    padding: 0px 12px;
-}
-
-.modal .modal-caja .modal-header label {
-    color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-}
-
-/*-------------------------------Caja texto---------------------------------*/
-
-.caja-texto {
-    position: absolute;
-    top: 50%;
-    left: 50px;
-    width: 180px;
-    height:200px;
-    background-color: rgba(255, 255, 255, 0.250);
-    padding: 12px;
-    border-radius:4px;
-    color: rgba(0, 0, 0, 0.8)
-}
-
-.caja-texto p {
-    overflow-y: scroll;
-    height: 100%;
 }

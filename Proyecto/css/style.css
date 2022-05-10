@@ -204,6 +204,11 @@ body {
     font:24px Helvetica,Arial,sans-serif;
 }
 
+.botonesAgregado input {
+    height: 100%;
+    width: 54px;
+}
+
 .botonAgregar {
     background-color: #e4e4e4;
     padding: 12px 20px;
@@ -246,3 +251,28 @@ body {
     text-align: start;
     padding: 20px;
 } 
+
+/*--Botón jugar--*/
+
+.btn-jugar {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    text-align: center;
+    margin-top: 28px;
+}
+
+.btn-jugar a {
+    background-color: #088308;
+    font-size: 28px;
+    padding: 8px 52px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+.btn-jugar a:hover {
+    transform: scale(1.2);
+    transition: all 150ms ease-in;
+}
