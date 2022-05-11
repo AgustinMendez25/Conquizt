@@ -40,7 +40,7 @@
             </div>
             <div class="div-rondasTiempo">
                 <h5>1:23</h5>
-                <h6>Ronda 1/3</h6>
+                <h6>Ronda <span id="ronda">1</span>/3</h6> 
             </div>
             <div class="ajustes" id="btnAjustes">
                 <img src="../img/ajustes-icono.png" alt="" >
@@ -66,8 +66,53 @@
                 <h2>¡Turno de <span id="nombreJugadorTurno">Jugador 1</span>!</h2> 
                 <p>Selecciona un territorio para defenderlo o atacarlo</p>
             </div>
+            <!--Modal Defender-->
+            <div class="modalAtqdef" id="modalDefender">
+                <div class="modalAtqdef-header">
+                    <h5>Territorio X</h5>
+                    <label id="cerrarModalDefender">X</label>
+                </div>
+                <div class="modalAtqdef-contenido">
+                    <p>
+                        Cantidad de Soldados: <span>10</span><br><br>
+                        Bonificación de Control: <span>X</span><br><br>
+                        Dificultad de Preguntas: <span>Dificil</span><br><br>
+                    </p>
+                    <input type="button" value="Defender" id="btnConfirmarDefensa">
+                </div>
+            </div>
+            <!--Modal Atacar-->
+            <div class="modalAtqdef" id="modalAtacar">
+                <div class="modalAtqdef-header">
+                    <h5>Territorio X</h5>
+                    <label id="cerrarModalAtacar">X</label>
+                </div>
+                <div class="modalAtqdef-contenido">
+                    <p>
+                        Cantidad de Soldados: <span>10</span><br><br>
+                        Bonificación de Control: <span>X</span><br><br>
+                        Dificultad de Preguntas: <span>Dificil</span><br><br>
+                    </p>
+                    <input type="button" value="Atacar" id="btnConfirmarAtaque">
+                </div>
+            </div>
+            <!--Modal Preguntas-->
+            <div class="modalPreguntas" id="modalPreguntas">
+                <div class="modalPreguntas-header">
+                    <h5>Titulo</h5>
+                    <h6>¿Pregunta Pregunta Pregunta Pregunta?</h6>
+                </div>
+                <div class="modalPreguntas-respuestas">
+                    <input type="button" name="respuesta" value="Respuesta 1" id="respuesta1">
+                    <input type="button" name="respuesta" value="Respuesta 2" id="respuesta2">
+                    <input type="button" name="respuesta" value="Respuesta 3" id="respuesta3">
+                    <input type="button" name="respuesta" value="Respuesta 4" id="respuesta4">
+                </div>
+            </div>
             <div class="siguiente-turno">
                 <input type="button" value="Siguiente Turno" id="siguienteTurno">
+                <input type="button" value="Atacar" id="atacarBtn">
+                <input type="button" value="Defender" id="defenderBtn">
             </div>
         </div>
     </div>

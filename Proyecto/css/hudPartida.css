@@ -99,6 +99,7 @@
 
 .ajustes {
     position: absolute;
+    z-index: 16;
     bottom: 0;
     right: 0;
     margin: 5px;
