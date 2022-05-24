@@ -1,0 +1,15 @@
+
+
+body{
+    background: rgb(34, 86, 227);
+}
+
+.mapadiv {
+    width: 80%;
+    margin: auto;
+}
+
+.mapadiv path{
+   
+    stroke-width: 2px;
+}
