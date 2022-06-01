@@ -4,7 +4,9 @@
 }
 
 body{
-    background: rgb(34, 86, 227);
+    /* background: rgb(34, 86, 227);
+    */
+    background: url(mapa\ fachero.JPG);    
 }
 
 .mapadiv {
