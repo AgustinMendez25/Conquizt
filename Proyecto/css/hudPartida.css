@@ -5,11 +5,13 @@
 
 .P-contenedor {
     background-image: url(../img/mapa.jpg);
-    background-size:cover;
-    background-position:center -50px;
+    background-size:contain;
+    background-position: center 35px;
     height: 100vh;
     width: 100vw;
     position: relative;
+    z-index: -2;
+    overflow-y: hidden;
 }
 
 /*----------------------Jugadores-----------------------*/
@@ -25,6 +27,11 @@
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+}
+
+.P-contenedor .jugador span{
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.795);
 }
 
 .P-contenedor .contenedor-imgJugador {
@@ -99,6 +106,7 @@
 
 .ajustes {
     position: absolute;
+    z-index: 16;
     bottom: 0;
     right: 0;
     margin: 5px;
@@ -180,4 +188,43 @@
 .caja-texto p {
     overflow-y: scroll;
     height: 100%;
+}
+
+/*---------------------------------RESULTADOS-------------------------------------*/
+
+#tablaResultados {
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+}
+
+#modalResultadosCaja {
+    width: 80vw;
+}
+
+#modalResultadosCaja h5{
+    text-align: center;
+    width:100%;
+}
+
+#tablaResultados td {
+    padding: 5px 12px;
+}
+
+.div-volver {
+    position: absolute;
+    bottom: 50px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.div-volver a {
+    text-decoration: none;
+    background-color:rgb(17, 68, 112);
+    font-size: 28px;
+    padding: 8px 52px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
 }

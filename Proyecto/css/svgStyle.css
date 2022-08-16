@@ -1,0 +1,76 @@
+:root{
+    --color:#51ff00d8;
+    --fondo_terri: #ffffff00;
+}
+
+body{
+    position: relative;
+    z-index: -2;
+}
+/*
+.mapadiv {
+    width: 87%;
+    margin: auto;
+    fill: var(--fondo_terri);
+}
+
+.mapadiv path{
+    stroke-width: 2px;
+}*/
+
+.svgContainer {
+    display:flex;
+    justify-content: center;
+}
+
+svg{
+    height: 94vh;
+    position: absolute;
+    top: 8vh;
+    z-index:-1;
+}
+
+/*
+svg{
+    height:494px;
+    position: absolute;
+    margin-left: 184px;
+    margin-top: 95px;
+}*/
+
+/* CONJUNTO DE TERRITORIOS */
+/*
+#concat1_2:hover {
+    fill: var(--color);
+}
+
+#concat1:hover {
+    fill: var(--color);
+}
+
+
+#concat2:hover {
+    fill: var(--color);
+}
+
+#concat3:hover {
+    fill: var(--color);
+}
+
+#concat4:hover {
+    fill: var(--color);
+}
+
+#concat5:hover {
+    fill: var(--color);
+}
+
+#concat6:hover {
+    fill: var(--color);
+}
+
+/* TERRITORIOS */
+
+.territorio:hover{
+    fill: var(--color)!important;
+}

@@ -1,9 +1,13 @@
 "use strict";
 
+/*Modales Ajustes*/
+
 const btnAjustes = document.getElementById("btnAjustes");
 
 const modalAjustes = document.getElementById("modalAjustes");
 const modalAjustesCaja = document.getElementById("modalAjustesCaja");
+
+const cerrarAjustes = document.getElementById("cerrarAjustes");
 
 btnAjustes.addEventListener("click", ()=>{
     modalAjustes.style.visibility = "visible";

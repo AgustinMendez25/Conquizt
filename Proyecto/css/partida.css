@@ -23,18 +23,117 @@
     text-shadow: 1px 1px 3px rgb(171, 168, 218);
 }
 
+/*------Modales ataque defensa------*/
 
-/*------Mensaje de Aviso------*/
-
-.partida .siguiente-turno {
+.partida .modalAtqdef {
     position: absolute;
-    bottom: 0;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+    width: 280px;
+    height: 280px;
+    border-radius: 4px;
+    transition: all 1.5s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index:1;
 }
 
-.partida .siguiente-turno input {
-    margin-bottom: 20px;
-    font-size: 24px;
+#modalDefender {
+    background-color: rgba(0, 255, 234, 0.5);
+    top: 30%;
+    left: 70%;
+}
+
+#modalAtacar {
+    background-color: rgba(255, 238, 0, 0.5);
+    top: 30%;
+    left: 30%;
+}
+
+.partida .modalAtqdef .modalAtqdef-header{
+    display: flex;
+    padding: 10px;
+}
+
+.partida .modalAtqdef .modalAtqdef-header h5{
+    text-align: center;
+    width: 100%;
+    margin: 0 30px;
+    font-size: 20px;
+    background-color: aliceblue;
+}
+
+.partida .modalAtqdef .modalAtqdef-header label{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.partida .modalAtqdef .modalAtqdef-contenido{
+    text-align: center;
+}
+
+.partida .modalAtqdef .modalAtqdef-contenido p{
+    margin: 20px;
+    background-color: aliceblue;
+    padding: 12px;
+    font-size: 16px;
+}
+.partida .modalAtqdef input{
+    border: none;
+    padding: 8px 28px;
+    font-size: 18px;
+    color: white;
+}
+
+#btnConfirmarDefensa {
+    background-color: rgb(44, 170, 13);
+}
+
+#btnConfirmarAtaque {
+    background-color: rgb(170, 13, 13);
+}
+
+/*Modales Preguntas*/
+
+.modalPreguntas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -350px;
+    margin-top: -200px;
+    width: 700px;
+    height: 400px;
+    border-radius: 12px;
+    transition: all 1.5s ease;
+    background-color: aliceblue;
+    opacity: 0;
+    visibility: hidden;
+    z-index:2;
+}
+
+.modalPreguntas .modalPreguntas-header {
+    text-align: center;
+    padding: 24px;
+}
+
+.modalPreguntas .modalPreguntas-header h5{
+    font-size: 28px;
+}
+
+.modalPreguntas .modalPreguntas-header h6{
+    font-size: 38px;
+}
+
+.modalPreguntas-respuestas {
+    text-align: center;
+}
+
+.modalPreguntas-respuestas input {
+    width: 50%;
+    padding: 12px 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(64, 18, 138);
+    color: white;
+    cursor: pointer;
+    transition: all 1s ease;
 }

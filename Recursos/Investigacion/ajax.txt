@@ -1,0 +1,62 @@
+Curso AJAX con php
+https://www.youtube.com/watch?v=GeCNShiLdpc
+
+
+Conexion
+<?php
+    $conexion = mysqli_connect(
+        'localhost',
+        'root',
+        'password',
+        'database'
+    );
+
+    if($conexion){
+        echo 'conectado';
+    }
+?>
+
+
+min 36 incluir jquery en el html
+
+
+En el JS:
+$(document).ready(function() {
+    //Si entra aca el jQuery funciona
+    $('#elemento').keyup(function(e) { //boton = id del elemento html
+        let elemento = $('elemento').val();
+        $.ajax({
+            url: 'archivoPhp.php',
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+            }
+        })
+    })
+})
+
+
+En el PHP:
+<?php
+    include('database.php');
+
+    $boton = #_POST['boton']; //nombre en el HTML del boton
+
+    if(!empty($search)) {
+        $query = "SELECT...";
+        $result = mysqli_query($conexion, $query);
+        if(!$result) {
+            die ('Query Error'.mysqli_error($conexion));
+        }
+        $json = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $json[] = array(
+                'id' => $row['id'],
+                otro campo,
+                otro campo
+            )
+        }
+        $jsonstring = json_encode($json);
+        echo $jsonstring;
+    }
+?>
