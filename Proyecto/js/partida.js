@@ -1,11 +1,35 @@
 "use strict";
 
+/* VARIABLES */
+
+const fondoNegro = document.getElementById("fondoNegro");
+
 /* FUNCIONES */
+
+function colocarFondoNegro() {
+    fondoNegro.style.opacity = "1";
+    fondoNegro.style.visibility = "visible";
+}
+
+function sacarFondoNegro() {
+    fondoNegro.style.opacity = "0";
+    fondoNegro.style.visibility = "hidden";
+}
 
 function mensajeTexto(mensaje) {
     let texto = document.getElementById("cajaAvisos");
     texto.innerHTML = texto.innerHTML + mensaje;
 }
+
+/* COMENZAR PARTIDA */
+
+document.getElementById("btnComenzarPartida").addEventListener("click", ()=>{
+    setTimeout(() => {}, 2000);
+    const cargPartida = document.getElementById("cargaPartida");
+    cargaPartida.style.opacity = "0";
+    cargaPartida.style.visibility = "hidden";
+    despausarTiempo();
+})
 
 /*JUGADORES*/
 
@@ -17,8 +41,12 @@ let jugador4 = [];
 let idActual = 0;
 let jugadorActual = "";
 let colorActual = "";
+let faccionActual = 0;
 
-const idPartida = 1;
+let cantJugadores = 4;
+
+const idPartida = document.getElementById("btnComenzarPartida").getAttribute("idPartida");
+//let modoJuego = "";
 let numRonda = 0;
 
 /*TERRITORIOS*/
@@ -62,6 +90,81 @@ const t35 = document.getElementById("Vector_35");
 $(document).ready(function() {
     //Si entra aca el jQuery funciona 
     $.ajax({
+        url: '../php/obtenerModoJuego.php',
+        type: 'POST',
+        data: {"idPartida" : idPartida},
+        success: function(response) {
+            let respuesta = JSON.parse(response);
+            var modoJuego = respuesta[0]['modoJuego'];
+
+            const li3 = document.getElementById("jugador-3");
+            const li4 = document.getElementById("jugador-4");
+
+            switch (modoJuego) {
+                case "FFA":
+                    document.getElementById('modoJuegoTXT').innerHTML = "Partida FFA";
+                    break;
+                case "1vs1":
+                    document.getElementById('modoJuegoTXT').innerHTML = "Partida 1vs1";
+                    li3.style.visibility = "hidden";
+                    li4.style.visibility = "hidden";
+                    cantJugadores = 2;
+                    break;
+                case "Triple":
+                    document.getElementById('modoJuegoTXT').innerHTML = "Partida Triples";
+                    li4.style.visibility = "hidden";
+                    cantJugadores = 3;
+                    break;
+                case "2vs2":
+                    document.getElementById('modoJuegoTXT').innerHTML = "Partida 2vs2";
+                    break;            
+                default:
+                    break;
+            }
+            setearJugadores();
+        }
+    })
+    function setearJugadores() {
+        $.ajax({
+            url: '../php/controlBDD.php',
+            type: 'POST',
+            data: {"idPartida" : idPartida},
+            success: function(response) {
+                var jugadores = JSON.parse(response);
+                
+                
+                jugador1 = [jugadores[0]['numJugador'], jugadores[0]['nickname'], jugadores[0]['color']];
+                jugador2 = [jugadores[1]['numJugador'], jugadores[1]['nickname'], jugadores[1]['color']];
+                
+                idActual = jugador1[0];
+                jugadorActual = jugador1[1];
+                colorActual = jugador1[2];
+                
+                $('#jugador1').html(jugador1[1]);
+                $('#jugador2').html(jugador2[1]);
+                
+                document.getElementById("jugador1").style.color = jugador1[2] + "b6";
+                document.getElementById("jugador2").style.color = jugador2[2] + "b6";
+                
+                $('#nombreJugadorTurno').html(jugador1[1]);
+                
+                if (cantJugadores == 3) {
+                    jugador3 = [jugadores[2]['numJugador'], jugadores[2]['nickname'], jugadores[2]['color']];
+                    $('#jugador3').html(jugador3[1]);
+                    document.getElementById("jugador3").style.color = jugador3[2] + "b6";
+                }
+                if (cantJugadores == 4) {
+                    jugador3 = [jugadores[2]['numJugador'], jugadores[2]['nickname'], jugadores[2]['color']];
+                    jugador4 = [jugadores[3]['numJugador'], jugadores[3]['nickname'], jugadores[3]['color']];
+                    $('#jugador3').html(jugador3[1]);
+                    $('#jugador4').html(jugador4[1]);
+                    document.getElementById("jugador3").style.color = jugador3[2] + "b6";
+                    document.getElementById("jugador4").style.color = jugador4[2] + "b6";
+                }
+            }
+        })
+    }
+    $.ajax({
         url: '../php/obtenerRonda.php',
         type: 'POST',
         data:{"idPartida" : idPartida},
@@ -69,29 +172,6 @@ $(document).ready(function() {
             var resultado = JSON.parse(response);
             numRonda = resultado[0]['ronda'];
             ronda.innerHTML = numRonda;
-        }
-    })
-    $.ajax({
-        url: '../php/controlBDD.php',
-        type: 'POST',
-        success: function(response) {
-            var jugadores = JSON.parse(response);
-            jugador1 = [jugadores[0]['idJugador'], jugadores[0]['nombre'], jugadores[0]['color']];
-            jugador2 = [jugadores[1]['idJugador'], jugadores[1]['nombre'], jugadores[1]['color']];
-            jugador3 = [jugadores[2]['idJugador'], jugadores[2]['nombre'], jugadores[2]['color']];
-            jugador4 = [jugadores[3]['idJugador'], jugadores[3]['nombre'], jugadores[3]['color']];
-            idActual = jugador1[0];
-            jugadorActual = jugador1[1];
-            colorActual = jugador1[2];
-            $('#jugador1').html(jugador1[1]);
-            $('#jugador2').html(jugador2[1]);
-            $('#jugador3').html(jugador3[1]);
-            $('#jugador4').html(jugador4[1]);
-            document.getElementById("jugador1").style.color = jugador1[2] + "b6";
-            document.getElementById("jugador2").style.color = jugador2[2] + "b6";
-            document.getElementById("jugador3").style.color = jugador3[2] + "b6";
-            document.getElementById("jugador4").style.color = jugador4[2] + "b6";
-            $('#nombreJugadorTurno').html(jugador1[1]);
         }
     })
     $.ajax({
@@ -250,20 +330,20 @@ $(document).ready(function() {
 
 function cambiarColorTerritorio(t) {
     switch (t.getAttribute("value")) {
-        case jugador1[1]:
+        case jugador1[0]:
             t.style.fill = jugador1[2] + "55";
             break;
-        case jugador2[1]:
+        case jugador2[0]:
             t.style.fill = jugador2[2] + "55";
             break;
-        case jugador3[1]:
+        case jugador3[0]:
             t.style.fill = jugador3[2] + "55";
             break;
-        case jugador4[1]:
+        case jugador4[0]:
             t.style.fill = jugador4[2] + "55";
             break;
         default:
-            t.style.fill = "#e1e4e055";
+            t.style.fill = "#0000001";
             break;
     }
 }
@@ -271,6 +351,7 @@ function cambiarColorTerritorio(t) {
 //Se incluye un timeout ya que ajax demora un poco en obtener los nombres, una vez obtenidos se procesa el resto
 setTimeout(function(){
     jugadorActual = jugador1[1];
+    idActual = jugador1[0];
     cambiarColorTerritorio(t1);
     cambiarColorTerritorio(t2);
     cambiarColorTerritorio(t3);
@@ -310,20 +391,20 @@ setTimeout(function(){
 
 /*MODALES*/
 
-const modalAtacar = document.getElementById("modalAtacar");
-const modalDefender = document.getElementById("modalDefender");
+const modalAtacarDefender = document.getElementById("modalAtacarDefender");
+//const modalDefender = document.getElementById("modalDefender");
 
-const cerrarModalDefender = document.getElementById("cerrarModalDefender");
-const cerrarModalAtacar = document.getElementById("cerrarModalAtacar");
+//const cerrarModalDefender = document.getElementById("cerrarModalDefender");
+const cerrarmodalAtacarDefender = document.getElementById("cerrarModalAtacarDefender");
 
-cerrarModalDefender.addEventListener("click", ()=>{
+/*cerrarModalDefender.addEventListener("click", ()=>{
     modalDefender.style.visibility = "hidden";
     modalDefender.style.opacity = "0";
-})
+})*/
 
-cerrarModalAtacar.addEventListener("click", ()=>{
-    modalAtacar.style.visibility = "hidden";
-    modalAtacar.style.opacity = "0";
+cerrarmodalAtacarDefender.addEventListener("click", ()=>{
+    modalAtacarDefender.style.visibility = "hidden";
+    modalAtacarDefender.style.opacity = "0";
 })
 
 /*Modales*/
@@ -332,20 +413,63 @@ function llenarDatosTerritorio(t){
     $.ajax({
         url: '../php/pedirDatosTerritorio.php',
         type: 'POST',
-        data: {territorio : t},
+        data: {territorio : t, idPartida : idPartida},
         success: function(response) {
             var territorio = JSON.parse(response);
+
+            faccionActual = territorio[0]['idFaccion'];
             
-            $('#nombreTerritorioDef').html(territorio[0]['nombreTerritorio']);
-            $('#nombreTerritorioAtq').html(territorio[0]['nombreTerritorio']);
-            $('#cantSoldadosDef').html(territorio[0]['cantSoldados']);
-            $('#cantSoldadosAtq').html(territorio[0]['cantSoldados']);
-            $('#dificultadDef').html(territorio[0]['dificultadPreguntas']);
-            $('#dificultadAtq').html(territorio[0]['dificultadPreguntas']);
+            if(faccionActual != null){
+                $('#faccionDuenia').html(territorio[0]['nombreFaccion']);
+            }else{
+                $('#faccionDuenia').html("Desconocido");
+            }
+            $('#nombreTerritorio').html(territorio[0]['nombreTerritorio']);
+
+            const cantSold = territorio[0]['cantSoldados'];
+
+            $('#cantSoldados').html(cantSold);
+            if (cantSold <= 75) {
+                $('#dificultad').html("Fácil");
+            }else if (cantSold <= 200 && cantSold > 75) {
+                $('#dificultad').html("Intermedio");
+            }else if (cantSold > 200) {
+                $('#dificultad').html("Difícil");
+            }
+            
         }
     })
 }
 
+let modoJugador = "0";
+
+function eventoClickTerritorio(t, numT) {
+    t.addEventListener("click", ()=>{
+        llenarDatosTerritorio(numT);
+        if(t.getAttribute("value") != idActual){
+            modalAtacarDefender.style.visibility = "visible";
+            modalAtacarDefender.style.opacity = "1";
+            modalAtacarDefender.style.backgroundColor = "rgba(255, 238, 0, 0.5)";
+            modalAtacarDefender.style.top = "30%";
+            modalAtacarDefender.style.left = "30%";
+            document.getElementById('btnConfirmarAtaqueDefensa').setAttribute("value","Atacar");
+            document.getElementById('btnConfirmarAtaqueDefensa').style.backgroundColor = "rgb(170, 13, 13)";
+            modoJugador = 1;
+        }else{
+            modalAtacarDefender.style.visibility = "visible";
+            modalAtacarDefender.style.opacity = "1";
+            modalAtacarDefender.style.backgroundColor = "rgba(0, 255, 234, 0.5)";
+            modalAtacarDefender.style.top = "30%";
+            modalAtacarDefender.style.left = "70%";
+            document.getElementById('btnConfirmarAtaqueDefensa').setAttribute("value","Defender");
+            document.getElementById('btnConfirmarAtaqueDefensa').style.backgroundColor = "rgb(44, 170, 13)";
+            modoJugador = 2;
+        }
+        territorioActual = t;
+    })
+}
+
+/*
 function eventoClickTerritorio(t, numT) {
     t.addEventListener("click", ()=>{
         llenarDatosTerritorio(numT);
@@ -362,7 +486,7 @@ function eventoClickTerritorio(t, numT) {
         }
         territorioActual = t;
     })
-}
+}*/
 
 eventoClickTerritorio(t1,1);
 eventoClickTerritorio(t2,2);
@@ -405,8 +529,8 @@ eventoClickTerritorio(t35,35);
 const nombreJugadorTurno = document.getElementById("nombreJugadorTurno");
 const ronda = document.getElementById("ronda");
 const modalResultados = document.getElementById("modalResultados");
+const modalResultadosCaja = document.getElementById("modalResultadosCaja");
 
-const cantJugadores = 4;
 let turnoJugador = 1;
 let cantRondas = 3;
 
@@ -449,6 +573,8 @@ function pasarTurno(){
     nombreJugadorTurno.innerHTML = jugadorActual;
     nombreJugadorTurno.style.color = colorActual;
     ronda.innerHTML = numRonda;
+    minutos = 0;
+    segundos = 30;
 }
 
 function mostrarResultados(){
@@ -459,6 +585,7 @@ function mostrarResultados(){
     $.ajax({
         url: '../php/obtenerResultados.php',
         type: 'POST',
+        data: {"id" : idPartida},
         success: function(response) {
             var resultados = JSON.parse(response);
             let count = 0;
@@ -490,12 +617,14 @@ function mostrarResultados(){
             });
         }
     })
-    $.ajax({
-        url: '../php/borrarPartida.php',
-        type: 'POST',
-        data:{"idPartida" : idPartida}
-    })
-    
+    setTimeout(() => {
+        $.ajax({
+            url: '../php/borrarPartida.php',
+            type: 'POST',
+            data:{"idPartida" : idPartida}
+        })
+        pausarTiempo();
+    }, 5000);
 }
 
 function darTiempo() {
@@ -506,12 +635,12 @@ function darTiempo() {
         modalPreguntas.style.visibility = "hidden";
         modalPreguntas.style.opacity = "0";
         modalPreguntas.style.pointerEvents = "none";
-        if((numRonda == (cantRondas)) && (turnoJugador == cantJugadores)){
+        if((numRonda >= (cantRondas)) && (turnoJugador == cantJugadores)){
             mostrarResultados();
         }else{
             pasarTurno();
         }
-    }, 1200);
+    }, 800);
 
 }
 
@@ -532,35 +661,59 @@ function darTerritorio(jugador, idTerritorio, idPartida, ptsSumados){
             'jugador' : jugador,
             'idTerritorio' : idTerritorio,
             'idPartida' : idPartida,
-            'ptsSumados' : ptsSumados
+            'ptsSumados' : ptsSumados,
+            'modoJugador' : modoJugador
             
         },
         success: function(response){
             let resultado = JSON.parse(response);
             let soldados = resultado[0]['soldados'];
-/*
-            const e = document.createElement("span");
-            e.style.position = "absolute";
-            e.style.zIndex = 1200;
-            e.style.fontSize = "24px";
-            e.style.bottom = "0";
-            e.style.right = "0";
 
-            const eT = document.createTextNode("+" + soldados);
+            const e = document.getElementById('soldadosAgregados');
+            e.innerHTML = "+" + soldados;
 
-            e.appendChild(eT);
-            territorioActual.appendChild(e);
-            console.log(territorioActual);*/
+            const modal = document.getElementById('modalSoldados');
+            modal.style.visibility = "visible";
+            modal.style.opacity = "1";
 
+            setTimeout(() => {
+                modal.style.visibility = "hidden";
+                modal.style.opacity = "0";
+                escalarMensajeTurno();
+            }, 2500);
         }
     })
 }
 
+function escalarMensajeTurno() {
+    const partidaMensajeAviso = document.getElementById("partidaMensajeAviso");
+    partidaMensajeAviso.style.transform = "translateY(30vh)";
+    partidaMensajeAviso.style.backgroundColor = "(0,0,0,0.75)";
+    partidaMensajeAviso.firstElementChild.style.fontSize = "92px";
+    partidaMensajeAviso.lastElementChild.style.visibility = "hidden";
+    partidaMensajeAviso.lastElementChild.style.opacity = "0";
+    partidaMensajeAviso.parentNode.style.height = "100vh";
+    partidaMensajeAviso.parentNode.style.backgroundColor = "rgba(0,0,0,0.5)";
+    partidaMensajeAviso.parentNode.style.pointerEvents = "none";
+    pausarTiempo();
+    setTimeout(() => {
+        partidaMensajeAviso.style.transform = "translateY(0)";
+        partidaMensajeAviso.style.zIndex = "0";
+        partidaMensajeAviso.firstElementChild.style.fontSize = "38px";
+        partidaMensajeAviso.lastElementChild.style.visibility = "visible";
+        partidaMensajeAviso.lastElementChild.style.opacity = "1";
+        partidaMensajeAviso.parentNode.style.height = "0px";
+        partidaMensajeAviso.parentNode.style.backgroundColor = "rgba(0,0,0,0)";
+        partidaMensajeAviso.parentNode.style.pointerEvents = "auto";
+        despausarTiempo();
+    }, 3000);
+}
+
 btnRespuesta1.addEventListener("click", ()=>{
     modalPreguntas.style.pointerEvents = "none";
-    if(btnRespuesta1.getAttribute("value") == respCorrecta){
+    if(btnRespuesta1.getAttribute("idResp") == respCorrecta){
         btnRespuesta1.style.backgroundColor = "green";
-        territorioActual.setAttribute("value", jugadorActual);
+        territorioActual.setAttribute("value", idActual);
         cambiarColorTerritorio(territorioActual);
         mensajeTexto("<span style='color:" + colorActual +"'>" + jugadorActual +
         "</span> ha conquistado el territorio <span style='color:red'>" +
@@ -568,72 +721,84 @@ btnRespuesta1.addEventListener("click", ()=>{
         darTerritorio(idActual, territorioActual.getAttribute("idT"), idPartida, 3);
     }else{
         btnRespuesta1.style.backgroundColor = "red";
+        setTimeout(() => {
+            escalarMensajeTurno();
+        }, 1000);
     }
-    modalAtacar.style.visibility = "hidden";
-    modalAtacar.style.opacity = "0";
-    modalDefender.style.visibility = "hidden";
-    modalDefender.style.opacity = "0";
+    modalAtacarDefender.style.visibility = "hidden";
+    modalAtacarDefender.style.opacity = "0";
+    //modalDefender.style.visibility = "hidden";
+    //modalDefender.style.opacity = "0";
     darTiempo();
 })
 
 btnRespuesta2.addEventListener("click", ()=>{
     modalPreguntas.style.pointerEvents = "none";
-    if(btnRespuesta2.getAttribute("value") == respCorrecta){
+    if(btnRespuesta2.getAttribute("idResp") == respCorrecta){
         btnRespuesta2.style.backgroundColor = "green";
-        territorioActual.setAttribute("value", jugadorActual);
+        territorioActual.setAttribute("value", idActual);
         cambiarColorTerritorio(territorioActual);
         mensajeTexto("<span style='color:blue'>" + jugadorActual + "</span> ha conquistado el territorio <span style='color:red'>" + territorioActual.getAttribute('idT') + "</span>" + "<br>");
         darTerritorio(idActual, territorioActual.getAttribute("idT"), idPartida, 3);
     }else{
         btnRespuesta2.style.backgroundColor = "red";
+        setTimeout(() => {
+            escalarMensajeTurno();
+        }, 1000);
     }
-    modalAtacar.style.visibility = "hidden";
-    modalAtacar.style.opacity = "0";
-    modalDefender.style.visibility = "hidden";
-    modalDefender.style.opacity = "0";
+    modalAtacarDefender.style.visibility = "hidden";
+    modalAtacarDefender.style.opacity = "0";
+    //modalDefender.style.visibility = "hidden";
+    //modalDefender.style.opacity = "0";
     darTiempo();
 })
 
 btnRespuesta3.addEventListener("click", ()=>{
     modalPreguntas.style.pointerEvents = "none";
-    if(btnRespuesta3.getAttribute("value") == respCorrecta){
+    if(btnRespuesta3.getAttribute("idResp") == respCorrecta){
         btnRespuesta3.style.backgroundColor = "green";
-        territorioActual.setAttribute("value", jugadorActual);
+        territorioActual.setAttribute("value", idActual);
         cambiarColorTerritorio(territorioActual);
         mensajeTexto("<span style='color:blue'>" + jugadorActual + "</span> ha conquistado el territorio <span style='color:red'>" + territorioActual.getAttribute('idT') + "</span>" + "<br>");
         darTerritorio(idActual, territorioActual.getAttribute("idT"), idPartida, 3);
     }else{
         btnRespuesta3.style.backgroundColor = "red";
+        setTimeout(() => {
+            escalarMensajeTurno();
+        }, 1000);
     }
-    modalAtacar.style.visibility = "hidden";
-    modalAtacar.style.opacity = "0";
-    modalDefender.style.visibility = "hidden";
-    modalDefender.style.opacity = "0";
+    modalAtacarDefender.style.visibility = "hidden";
+    modalAtacarDefender.style.opacity = "0";
+    //modalDefender.style.visibility = "hidden";
+    //modalDefender.style.opacity = "0";
     darTiempo();
 })
 
 btnRespuesta4.addEventListener("click", ()=>{
     modalPreguntas.style.pointerEvents = "none";
-    if(btnRespuesta4.getAttribute("value") == respCorrecta){
+    if(btnRespuesta4.getAttribute("idResp") == respCorrecta){
         btnRespuesta4.style.backgroundColor = "green";
-        territorioActual.setAttribute("value", jugadorActual);
+        territorioActual.setAttribute("value", idActual);
         cambiarColorTerritorio(territorioActual);
         mensajeTexto("<span style='color:blue'>" + jugadorActual + "</span> ha conquistado el territorio <span style='color:red'>" + territorioActual.getAttribute('idT') + "</span>" + "<br>");
         darTerritorio(idActual, territorioActual.getAttribute("idT"), idPartida, 3);
     }else{
         btnRespuesta4.style.backgroundColor = "red";
+        setTimeout(() => {
+            escalarMensajeTurno();
+        }, 1000);
     }
-    modalAtacar.style.visibility = "hidden";
-    modalAtacar.style.opacity = "0";
-    modalDefender.style.visibility = "hidden";
-    modalDefender.style.opacity = "0";
+    modalAtacarDefender.style.visibility = "hidden";
+    modalAtacarDefender.style.opacity = "0";
+    //modalDefender.style.visibility = "hidden";
+    //modalDefender.style.opacity = "0";
     darTiempo();
 })
 
 /*Modal Preguntas*/
 
-const btnConfirmarDefensa = document.getElementById("btnConfirmarDefensa");
-const btnConfirmarAtaque = document.getElementById("btnConfirmarAtaque");
+//const btnConfirmarDefensa = document.getElementById("btnConfirmarDefensa");
+const btnConfirmarAtaqueDefensa = document.getElementById("btnConfirmarAtaqueDefensa");
 
 const modalPreguntas = document.getElementById("modalPreguntas");
 
@@ -643,11 +808,12 @@ function resetearRespuestas(){
     btnRespuesta3.style.backgroundColor = "rgb(64, 18, 138)";
     btnRespuesta4.style.backgroundColor = "rgb(64, 18, 138)";
 }
-
+/*
 btnConfirmarDefensa.addEventListener("click", ()=>{
     $.ajax({
         url: '../php/pedirDatosPregunta.php',
         type: 'POST',
+        //data: {'dificultad' : document.getElementById('')},
         success: function(response) {
             var pregunta = JSON.parse(response);
 
@@ -664,25 +830,35 @@ btnConfirmarDefensa.addEventListener("click", ()=>{
     modalPreguntas.style.opacity = "1";
     modalPreguntas.style.visibility = "visible";
     modalPreguntas.style.pointerEvents = "auto";
-})
+})*/
 
-btnConfirmarAtaque.addEventListener("click", ()=>{
+btnConfirmarAtaqueDefensa.addEventListener("click", ()=>{
     $.ajax({
         url: '../php/pedirDatosPregunta.php',
         type: 'POST',
+        data: {
+            'dificultad' : document.getElementById('dificultad').innerHTML,
+            'faccion' : faccionActual
+        },
         success: function(response) {
             var pregunta = JSON.parse(response);
 
-            respCorrecta = pregunta[0]['respuestaCorrecta'];
+            respCorrecta = pregunta['respuestaCorrecta'];
 
-            $('#consignaPregunta').html(pregunta[0]['pregunta']);
-            respuesta1.setAttribute("value",pregunta[0]['respuestaCorrecta']);
-            respuesta2.setAttribute("value",pregunta[0]['respuestaIncorrecta1']);
-            respuesta3.setAttribute("value",pregunta[0]['respuestaIncorrecta2']);
-            respuesta4.setAttribute("value",pregunta[0]['respuestaIncorrecta3']);
+            $('#consignaPregunta').html(pregunta['pregunta']);
+            btnRespuesta1.setAttribute("value",pregunta['respuesta1']);
+            btnRespuesta1.setAttribute("idResp",1);
+            btnRespuesta2.setAttribute("value",pregunta['respuesta2']);
+            btnRespuesta2.setAttribute("idResp",2);
+            btnRespuesta3.setAttribute("value",pregunta['respuesta3']);
+            btnRespuesta3.setAttribute("idResp",3);
+            btnRespuesta4.setAttribute("value",pregunta['respuesta4']);
+            btnRespuesta4.setAttribute("idResp",4);
         }
     })
     resetearRespuestas();
+    minutos = 0;
+    segundos = 30;
     modalPreguntas.style.opacity = "1";
     modalPreguntas.style.visibility = "visible";
     modalPreguntas.style.pointerEvents = "auto";

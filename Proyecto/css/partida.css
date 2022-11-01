@@ -1,12 +1,37 @@
+*{
+    font-family: 'Aboreto', cursive;
+}
+
+#cargaPartida{
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    transition: all 2s ease-in;
+}
+
+#cargaPartida input {
+    font-size: 92px;
+    padding: 24px 54px;
+    border-radius: 32px;
+    background-color: rgb(35, 104, 165);
+    cursor: pointer;
+}
+
 /*------Mensaje de Aviso------*/
 
 .partida .partida-mensajeAviso {
     position: absolute;
     width: 100vw;
+    height: 0px;
     text-align: center;
     margin-top: 24px;
     color: rgb(216, 215, 215);
     text-shadow: 2px 2px 3px black;
+    transition: all 1s ease;
 }
 
 .partida .partida-mensajeAviso h2 {
@@ -30,12 +55,12 @@
     width: 280px;
     height: 280px;
     border-radius: 4px;
-    transition: all 1.5s ease;
+    transition: all 0.8s ease;
     opacity: 0;
     visibility: hidden;
     z-index:1;
 }
-
+/*
 #modalDefender {
     background-color: rgba(0, 255, 234, 0.5);
     top: 30%;
@@ -46,7 +71,7 @@
     background-color: rgba(255, 238, 0, 0.5);
     top: 30%;
     left: 30%;
-}
+}*/
 
 .partida .modalAtqdef .modalAtqdef-header{
     display: flex;
@@ -83,6 +108,7 @@
     color: white;
 }
 
+/*
 #btnConfirmarDefensa {
     background-color: rgb(44, 170, 13);
 }
@@ -102,8 +128,9 @@
     width: 700px;
     height: 400px;
     border-radius: 12px;
-    transition: all 1.5s ease;
-    background-color: aliceblue;
+    transition: all 0.8s ease;
+    background-image: url("../img/preguntas.png");
+    background-size: cover;
     opacity: 0;
     visibility: hidden;
     z-index:2;
@@ -136,4 +163,23 @@
     color: white;
     cursor: pointer;
     transition: all 1s ease;
+}
+
+/*Modales Soldados*/
+
+#modalSoldados {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.370);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+}
+
+#soldadosAgregados {
+    font-size: 128px;
 }

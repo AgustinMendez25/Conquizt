@@ -3,15 +3,34 @@
     margin: 0;
 }
 
-.P-contenedor {
+body {
     background-image: url(../img/mapa.jpg);
     background-size:contain;
-    background-position: center 35px;
+    background-position: center;
+}
+
+.P-contenedor {
+    /*ackground-image: url(../img/hud.png);*/
+    background-size:cover;
+    background-position: center;
     height: 100vh;
     width: 100vw;
     position: relative;
     z-index: -2;
     overflow-y: hidden;
+}
+
+.hudDerecho {
+    position: absolute;
+    height: 100vh;
+    right: 0;
+    pointer-events: none;
+}
+
+.hudIzquierdo {
+    position: absolute;
+    height: 100vh;
+    pointer-events: none;
 }
 
 /*----------------------Jugadores-----------------------*/
@@ -171,13 +190,27 @@
     cursor: pointer;
 }
 
+/*-------------------------------Caja modo juego---------------------------------*/
+
+.contenedorModoJuego{
+    position: absolute;
+    z-index: 16;
+    bottom: 0;
+    left: 0;
+    margin: 20px;
+}
+
+.contenedorModoJuego span {
+    font-size: 28px;
+}
+
 /*-------------------------------Caja texto---------------------------------*/
 
 .caja-texto {
     position: absolute;
     top: 50%;
-    left: 50px;
-    width: 180px;
+    left: 20px;
+    width: 164px;
     height:200px;
     background-color: rgba(255, 255, 255, 0.250);
     padding: 12px;

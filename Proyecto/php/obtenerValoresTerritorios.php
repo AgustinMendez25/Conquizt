@@ -2,7 +2,7 @@
     
     include('conexion.php');
 
-    $query = "SELECT idTerritorio,idDuenioDelTerritorio,nombre
+    $query = "SELECT idTerritorio,idDuenioDelTerritorio,nickname
     from territorioporpartida tp left join jugadores j on tp.idDuenioDelTerritorio = j.idJugador;";
     
     $result = mysqli_query($conexion, $query);
@@ -14,7 +14,7 @@
         $json[] = array(
             'idTerritorio' => $row['idTerritorio'],
             'idDuenioDelTerritorio' => $row['idDuenioDelTerritorio'],
-            'nombre' => $row['nombre']
+            'nombre' => $row['nickname']
         );
     }
 

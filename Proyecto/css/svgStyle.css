@@ -1,6 +1,6 @@
 :root{
     --color:#51ff00d8;
-    --fondo_terri: #ffffff00;
+    --fondo_terri: #00000001;
 }
 
 body{
@@ -24,7 +24,7 @@ body{
 }
 
 svg{
-    height: 94vh;
+    height: 101vh;
     position: absolute;
     top: 8vh;
     z-index:-1;
