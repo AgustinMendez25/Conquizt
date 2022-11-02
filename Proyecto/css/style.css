@@ -40,7 +40,7 @@ input[type="button"]{
 /*----------------------------Busqueda Jugadores-----------------------*/
 
 .jugadorBusqueda{
-    font:26px Helvetica,Arial,sans-serif;
+    font:24px Helvetica,Arial,sans-serif;
     color: #e0dcdc;
     cursor:pointer;
     top:50%;
@@ -106,58 +106,56 @@ input[type="button"]{
 }
 
 .faccion-li {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font:26px Helvetica,Arial,sans-serif;
-    color: #e0dcdc;
-    background-color: #141414;
-    height: 44px!important;
-    width: 44px!important;
-}
-
-.faccion-li img {
-    width: 80px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.644);
+    background-color: #d8d2d2;
+    height: 80px!important;
+    width: 80px!important;
 }
 
 .rueda-facciones #li-faccion-1{
     top:50%;
     left:50%;
-    margin-left: -175px;
-    margin-top: -250px;
+    margin-left: -195px;
+    margin-top: -235px;
     transform:rotate(-30deg);
 }
 .rueda-facciones #li-faccion-2{
     top:50%;
     left:50%;
-    margin-left: 130px;
-    margin-top: -250px;
+    margin-left: 113px;
+    margin-top: -238px;
     transform:rotate(30deg);
 }
 .rueda-facciones #li-faccion-3{
     top:50%;
     left:50%;
-    margin-left: 252px;
+    margin-left: 211px;
     margin-top: -25px;
     transform:rotate(90deg);   
 }
 .rueda-facciones #li-faccion-4{
     top:50%;
     left:50%;
-    margin-left: -297px;
+    margin-left: -292px;
     margin-top: -25px;
     transform:rotate(270deg);
 }
 .rueda-facciones #li-faccion-5{
     top:50%;
     left:50%;
-    margin-left: -197px;
-    margin-top: 190px;
+    margin-left: -192px;
+    margin-top: 160px;
     transform:rotate(210deg);
 }
 .rueda-facciones #li-faccion-6{
     top:50%;
     left:50%;
-    margin-left: 152px;
-    margin-top: 190px;
+    margin-left: 112px;
+    margin-top: 160px;
     transform:rotate(150deg);
 }
 
@@ -165,10 +163,10 @@ input[type="button"]{
 
 .circulo-jugadores{
     animation: rotar 14s linear infinite;
-    margin-top:95px;
-    margin-left:91px;
-    width:420px;
-    height: 420px;
+    margin-top:103px;
+    margin-left:103px;
+    width:401px;
+    height: 401px;
 }
 
 /*--Circulo Chico Conf del jugador--*/
@@ -183,10 +181,10 @@ input[type="button"]{
     top: 50%;
     left:50%;
     background-color: #141414;
-    width: 320px;
-    height: 320px;
-    margin-left: -144px;
-    margin-top: -150px;
+    width: 290px;
+    height: 290px;
+    margin-left: -128px;
+    margin-top: -134px;
     border-radius: 50%;
     animation: none /*-----------*/
 }
@@ -217,7 +215,8 @@ input[type="button"]{
 
 .botonAgregar {
     background-color: #e4e4e4;
-    padding: 12px 20px;
+    padding: 6px;
+    border-radius:6px;
 }
 
 .conf-jugador #btnGuardarCJ {

@@ -15,19 +15,19 @@
             <div class="conf-jugador">
                 <div class="botonesAgregado">
                     <input type="color" name="" id="">
-                    <div id="faccionJugador" class="botonAgregar">+</div>
+                    <div id="faccionJugador" class="botonAgregar"><img src="../img/signoPregunta.png" height="55px" width="55px" alt=""></div>
                 </div>
-                <input type="text" id="nombreJugador" value="Jugador 1" placeholder="Nombre del Jugador...">
+                <input type="text" id="nombreJugador" maxlength="14" value="Jugador 1" placeholder="Nombre del Jugador...">
                 <input type="button" id="btnGuardarCJ" value="Guardar">
             </div>
             <div class="circle rueda-facciones">
                 <ul>
-                    <li class="faccion-li" id="li-faccion-1"><img src="../img/Cascos/CascoMongol.png" alt=""></li>
-                    <li class="faccion-li" id="li-faccion-2"><img src="../img/Cascos/CascoFrances.png" alt=""></li>
-                    <li class="faccion-li" id="li-faccion-3"><img src="../img/Cascos/CascoJapones.png" alt=""></li>
-                    <li class="faccion-li" id="li-faccion-4"><img src="../img/Cascos/CascoVikingo.png" alt=""></li>
-                    <li class="faccion-li" id="li-faccion-5"><img src="../img/Cascos/CascoEgipcio.png" alt=""></li>
-                    <li class="faccion-li" id="li-faccion-6"><img src="../img/Cascos/CascoRomano.png" alt=""></li>
+                    <li class="faccion-li" id="li-faccion-1"><img src="../img/Cascos/CascoMongol.png" height="68px" alt=""></li>
+                    <li class="faccion-li" id="li-faccion-2"><img src="../img/Cascos/CascoFrances.png" height="68px" alt=""></li>
+                    <li class="faccion-li" id="li-faccion-3"><img src="../img/Cascos/CascoJapones.png" height="68px" alt=""></li>
+                    <li class="faccion-li" id="li-faccion-4"><img src="../img/Cascos/CascoVikingo.png" height="68px" alt=""></li>
+                    <li class="faccion-li" id="li-faccion-5"><img src="../img/Cascos/CascoEgipcio.png" height="68px" alt=""></li>
+                    <li class="faccion-li" id="li-faccion-6"><img src="../img/Cascos/CascoRomano.png" height="68px" alt=""></li>
                 </ul>
                 <div class="circle circulo-jugadores">
                     <ul>

@@ -10,46 +10,48 @@ const modoJuego = document.getElementById("modoJuego").getAttribute("value");
 switch (modoJuego) {
     case "1vs1":
         li1.style.marginLeft = "-100px";
-        li1.style.marginTop = "-230px";
-        li2.style.marginLeft = "-100px";
-        li2.style.marginTop = "180px";
-        li2.style.transform = "rotate(180deg)";
+        li1.style.marginTop = "-183px";
+        li2.style.marginLeft = "57px";
+        li2.style.marginTop = "-30px";
+        li2.style.transform = "rotate(90deg)";
+        
         li3.style.visibility = "hidden";
         li4.style.visibility = "hidden";
         break;
     case "2vs2":
         li1.style.marginLeft = "-100px";
-        li1.style.marginTop = "-230px";
-        li2.style.marginLeft = "105px";
-        li2.style.marginTop = "-25px";
+        li1.style.marginTop = "-183px";
+        li2.style.marginLeft = "57px";
+        li2.style.marginTop = "-30px";
         li2.style.transform = "rotate(90deg)";
         li3.style.marginLeft = "-100px";
-        li3.style.marginTop = "180px";
+        li3.style.marginTop = "134px";
         li3.style.transform = "rotate(180deg)";
-        li4.style.marginLeft = "-305px";
+        li4.style.marginLeft = "-258px";
         li4.style.marginTop = "-25px";
         li4.style.transform = "rotate(270deg)";
         break;
     case "Triple":
         li1.style.marginLeft = "-100px";
-        li1.style.marginTop = "-230px";
-        li2.style.marginLeft = "105px";
-        li2.style.marginTop = "-25px";
+        li1.style.marginTop = "-183px";
+        li2.style.marginLeft = "57px";
+        li2.style.marginTop = "-30px";
         li2.style.transform = "rotate(90deg)";
         li3.style.marginLeft = "-100px";
-        li3.style.marginTop = "180px";
+        li3.style.marginTop = "134px";
         li3.style.transform = "rotate(180deg)";
+        li4.style.visibility = "hidden";
         break;
     case "FFA":
         li1.style.marginLeft = "-100px";
-        li1.style.marginTop = "-230px";
-        li2.style.marginLeft = "105px";
-        li2.style.marginTop = "-25px";
+        li1.style.marginTop = "-183px";
+        li2.style.marginLeft = "57px";
+        li2.style.marginTop = "-30px";
         li2.style.transform = "rotate(90deg)";
         li3.style.marginLeft = "-100px";
-        li3.style.marginTop = "180px";
+        li3.style.marginTop = "134px";
         li3.style.transform = "rotate(180deg)";
-        li4.style.marginLeft = "-305px";
+        li4.style.marginLeft = "-258px";
         li4.style.marginTop = "-25px";
         li4.style.transform = "rotate(270deg)";
         break;

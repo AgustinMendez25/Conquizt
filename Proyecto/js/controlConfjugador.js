@@ -52,11 +52,37 @@ function consultarLogueo() {
     })
 }
 
+function setearFaccionIMG(i){
+    switch (i) {
+        case "1":
+            faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoMongol.png");
+            break;
+        case "2":
+            faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoFrances.png");
+            break;
+        case "3":
+            faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoJapones.png");
+            break;
+        case "4":
+            faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoVikingo.png");
+            break;
+        case "5":
+            faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoEgipcio.png");
+            break;
+        case "6":
+            faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoRomano.png");
+            break;
+        default:
+            faccionJugador.firstElementChild.setAttribute("src", "../img/signoPregunta.png");
+            break;
+    }
+}
+
 liBusqueda1.addEventListener("click", ()=>{
     nombreJugador.value = liBusqueda1.innerHTML;
     usuarioH4.innerHTML = liBusqueda1.innerHTML;
     usuarioH4.value = 1;
-    faccionJugador.innerHTML = liBusqueda1.getAttribute("idCivilizacion");
+    setearFaccionIMG(liBusqueda1.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda1.getAttribute("idCivilizacion");
     liActual = 1;
     consultarLogueo();
@@ -65,7 +91,7 @@ liBusqueda2.addEventListener("click", ()=>{
     nombreJugador.value = liBusqueda2.innerHTML;
     usuarioH4.innerHTML = liBusqueda2.innerHTML;
     usuarioH4.value = 2;
-    faccionJugador.innerHTML = liBusqueda2.getAttribute("idCivilizacion");
+    setearFaccionIMG(liBusqueda2.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda2.getAttribute("idCivilizacion");
     liActual = 2;
     consultarLogueo();
@@ -74,7 +100,7 @@ liBusqueda3.addEventListener("click", ()=>{
     nombreJugador.value = liBusqueda3.innerHTML;
     usuarioH4.innerHTML = liBusqueda3.innerHTML;
     usuarioH4.value = 3;
-    faccionJugador.innerHTML = liBusqueda3.getAttribute("idCivilizacion");
+    setearFaccionIMG(liBusqueda3.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda3.getAttribute("idCivilizacion");
     liActual = 3;
     consultarLogueo();
@@ -83,7 +109,7 @@ liBusqueda4.addEventListener("click", ()=>{
     nombreJugador.value = liBusqueda4.innerHTML;
     usuarioH4.innerHTML = liBusqueda4.innerHTML;
     usuarioH4.value = 4;
-    faccionJugador.innerHTML = liBusqueda4.getAttribute("idCivilizacion");
+    setearFaccionIMG(liBusqueda4.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda4.getAttribute("idCivilizacion");
     liActual = 4;
     consultarLogueo();
@@ -114,32 +140,32 @@ function obtenerInfoFaccion(i) {
 }
 
 liFaccion1.addEventListener("click", ()=>{//Mongoles
-    faccionJugador.innerHTML = "1";
+    faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoMongol.png");
     faccionJugador.value = "1";
     obtenerInfoFaccion(1);
 })
 liFaccion2.addEventListener("click", ()=>{//Francos
-    faccionJugador.innerHTML = "2";
+    faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoFrances.png");
     faccionJugador.value = "2";
     obtenerInfoFaccion(2);
 })
 liFaccion3.addEventListener("click", ()=>{//Japoneses
-    faccionJugador.innerHTML = "3";
+    faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoJapones.png");
     faccionJugador.value = "3";
     obtenerInfoFaccion(3);
 })
 liFaccion4.addEventListener("click", ()=>{//Vikingos
-    faccionJugador.innerHTML = "4";
+    faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoVikingo.png");
     faccionJugador.value = "4";
     obtenerInfoFaccion(4);
 })
 liFaccion5.addEventListener("click", ()=>{//Egipcios
-    faccionJugador.innerHTML = "5";
+    faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoEgipcio.png");
     faccionJugador.value = "5";
     obtenerInfoFaccion(5);
 })
 liFaccion6.addEventListener("click", ()=>{//Romanos
-    faccionJugador.innerHTML = "6";
+    faccionJugador.firstElementChild.setAttribute("src", "../img/Cascos/CascoRomano.png");
     faccionJugador.value = "6";
     obtenerInfoFaccion(6);
 })
