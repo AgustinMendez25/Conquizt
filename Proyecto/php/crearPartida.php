@@ -41,17 +41,17 @@
 
     $query2 = "";
     if($_POST['modoJuego'] == "1vs1"){
-        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador,color) 
-        values(".$id.",1,1,'#230fd8'),(".$id.",2,2,'#ff0000')";
+        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador) 
+        values(".$id.",1,1),(".$id.",2,2)";
     }else if($_POST['modoJuego'] == "2vs2"){
-        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador,color) 
-        values(".$id.",1,1,'#230fd8'),(".$id.",2,1,'#230fd8'),(".$id.",3,2,'#ff0000'),(".$id.",4,2,'#ff0000')";
+        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador) 
+        values(".$id.",1,1),(".$id.",2,1),(".$id.",3,2),(".$id.",4,2)";
     }else if($_POST['modoJuego'] == "Triple"){
-        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador,color) 
-        values(".$id.",1,1,'#230fd8'),(".$id.",2,2,'#ff0000'),(".$id.",3,3,'#d8cb0f')";
+        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador) 
+        values(".$id.",1,1),(".$id.",2,2),(".$id.",3,3)";
     }else if($_POST['modoJuego'] == "FFA"){
-        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador,color) 
-        values(".$id.",1,1,'#230fd8'),(".$id.",2,2,'#ff0000'),(".$id.",3,3,'#d8cb0f'),(".$id.",4,4,'#51ff00')";
+        $query2 = "INSERT INTO jugadores(idPartida,numJugador,equipoJugador) 
+        values(".$id.",1,1),(".$id.",2,2),(".$id.",3,3),(".$id.",4,4)";
     }
     
     $result2 = mysqli_query($conexion, $query2);

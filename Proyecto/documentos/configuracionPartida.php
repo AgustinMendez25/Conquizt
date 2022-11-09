@@ -10,11 +10,38 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <!--MODAL COLORES-->
+    <div class="modalContainerColores" id="modalColores">
+        <div class="modalColores">
+            <div class="modalHeader">
+                <h4>Seleccione un color</h4>
+                <span id="cerrarColores">x</span>
+            </div>
+            <div class="modalBody">
+                <div class="coloresContainer">
+                    <div>
+                        <div class="colorEleccion" id="rojo"></div>
+                        <div class="colorEleccion" id="azul"></div>
+                        <div class="colorEleccion" id="celeste"></div>
+                        <div class="colorEleccion" id="naranja"></div>
+                    </div>
+                    <div>
+                        <div class="colorEleccion" id="amarillo"></div>
+                        <div class="colorEleccion" id="verde"></div>
+                        <div class="colorEleccion" id="violeta"></div>
+                        <div class="colorEleccion" id="negro"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="wrapper-config" id="modoJuego" value="<?php echo $_GET['modoJuego']?>">
         <div class="seleccion">
             <div class="conf-jugador">
                 <div class="botonesAgregado">
-                    <input type="color" name="" id="">
+                    <div class="colorContainer">
+                        <div id="colorJugador" value="-">-</div>
+                    </div>
                     <div id="faccionJugador" class="botonAgregar"><img src="../img/signoPregunta.png" height="55px" width="55px" alt=""></div>
                 </div>
                 <input type="text" id="nombreJugador" maxlength="14" value="Jugador 1" placeholder="Nombre del Jugador...">
@@ -31,10 +58,10 @@
                 </ul>
                 <div class="circle circulo-jugadores">
                     <ul>
-                        <li class="jugadorBusqueda liJ" idCivilizacion="+" id="li-busqueda-1" idJugador="1">Jugador 1</li>
-                        <li class="jugadorBusqueda liJ" idCivilizacion="+" id="li-busqueda-2" idJugador="2">Jugador 2</li>
-                        <li class="jugadorBusqueda liJ" idCivilizacion="+" id="li-busqueda-3" idJugador="3">Jugador 3</li>
-                        <li class="jugadorBusqueda liJ" idCivilizacion="+" id="li-busqueda-4" idJugador="4">Jugador 4</li>
+                        <li class="jugadorBusqueda liJ" color="" idCivilizacion="+" id="li-busqueda-1" idJugador="1">Jugador 1</li>
+                        <li class="jugadorBusqueda liJ" color="" idCivilizacion="+" id="li-busqueda-2" idJugador="2">Jugador 2</li>
+                        <li class="jugadorBusqueda liJ" color="" idCivilizacion="+" id="li-busqueda-3" idJugador="3">Jugador 3</li>
+                        <li class="jugadorBusqueda liJ" color="" idCivilizacion="+" id="li-busqueda-4" idJugador="4">Jugador 4</li>
                     </ul>
                 </div>
             </div>

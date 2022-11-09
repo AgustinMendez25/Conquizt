@@ -114,6 +114,7 @@ input[type="button"]{
     background-color: #d8d2d2;
     height: 80px!important;
     width: 80px!important;
+    cursor:pointer;
 }
 
 .rueda-facciones #li-faccion-1{
@@ -200,6 +201,71 @@ input[type="button"]{
     text-align: center;
 }
 
+.modalContainerColores{
+    transition: opacity .6s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    visibility:hidden;
+    background-color: rgba(0, 0, 0, 0.450);
+    z-index:100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalColores {
+    background-color: rgb(158, 153, 153);
+    padding: 12px;
+    border-radius: 16px;
+}
+
+.modalColores h4 {
+    font-size: 32px;
+}
+
+.modalColores .modalHeader {
+    border-bottom: solid 1px black;
+    text-align: center;
+    padding: 12px;
+    position: relative;
+}
+
+.modalColores #cerrarColores {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size:28px;
+    font-weight: bolder;
+    margin-right:18px;
+    cursor: pointer;
+}
+
+.modalColores .modalBody {
+    padding: 24px;
+}
+
+.modalColores .modalBody .coloresContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.modalColores .modalBody .coloresContainer > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.colorEleccion {
+    width:100px;
+    height:100px;
+    margin: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
 .botonesAgregado {
     display: flex;
     margin-bottom: 20px;
@@ -208,9 +274,23 @@ input[type="button"]{
     font:24px Helvetica,Arial,sans-serif;
 }
 
-.botonesAgregado input {
-    height: 100%;
-    width: 54px;
+.botonesAgregado .colorContainer {
+    width: 55px;
+    margin:auto;
+    height:55px;
+    padding: 6px;
+    border-radius: 6px;
+    background-color: #c4c2c2;
+}
+
+.botonesAgregado #colorJugador {
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:32px;
+    cursor:pointer;
 }
 
 .botonAgregar {
@@ -365,6 +445,7 @@ input[type="button"]{
     width: 100vw;
     text-align: center;
     margin-top: 28px;
+    cursor:pointer;
 }
 
 .btn-jugar a {

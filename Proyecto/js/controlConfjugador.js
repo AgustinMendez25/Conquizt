@@ -84,6 +84,7 @@ liBusqueda1.addEventListener("click", ()=>{
     usuarioH4.value = 1;
     setearFaccionIMG(liBusqueda1.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda1.getAttribute("idCivilizacion");
+    colorJugador.style.backgroundColor = liBusqueda1.getAttribute("color");
     liActual = 1;
     consultarLogueo();
 })
@@ -93,6 +94,7 @@ liBusqueda2.addEventListener("click", ()=>{
     usuarioH4.value = 2;
     setearFaccionIMG(liBusqueda2.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda2.getAttribute("idCivilizacion");
+    colorJugador.style.backgroundColor = liBusqueda2.getAttribute("color");
     liActual = 2;
     consultarLogueo();
 })
@@ -102,6 +104,7 @@ liBusqueda3.addEventListener("click", ()=>{
     usuarioH4.value = 3;
     setearFaccionIMG(liBusqueda3.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda3.getAttribute("idCivilizacion");
+    colorJugador.style.backgroundColor = liBusqueda3.getAttribute("color");
     liActual = 3;
     consultarLogueo();
 })
@@ -111,6 +114,7 @@ liBusqueda4.addEventListener("click", ()=>{
     usuarioH4.value = 4;
     setearFaccionIMG(liBusqueda4.getAttribute("idCivilizacion"));
     faccionJugador.value = liBusqueda4.getAttribute("idCivilizacion");
+    colorJugador.style.backgroundColor = liBusqueda4.getAttribute("color");
     liActual = 4;
     consultarLogueo();
 })
@@ -170,28 +174,69 @@ liFaccion6.addEventListener("click", ()=>{//Romanos
     obtenerInfoFaccion(6);
 })
 
+//-------------------------COLORES-------------------------
+
+document.getElementById("naranja").style.backgroundColor = "rgba(216, 105, 15, 0.99)";
+document.getElementById("azul").style.backgroundColor = "rgba(35, 15, 216,0.99)";
+document.getElementById("rojo").style.backgroundColor = "rgba(255, 0, 0,0.99)";
+document.getElementById("amarillo").style.backgroundColor = "rgba(216, 203, 15, 0.99)";
+document.getElementById("verde").style.backgroundColor = "rgba(81, 255, 0, 0.99)";
+document.getElementById("violeta").style.backgroundColor = "rgba(206, 11, 164, 0.99)";
+document.getElementById("negro").style.backgroundColor = "rgba(15, 15, 15, 0.99)";
+document.getElementById("celeste").style.backgroundColor = "rgba(11, 200, 206, 0.99)";
+
+const modalColores = document.getElementById('modalColores');
+document.getElementById("colorJugador").addEventListener("click",()=>{
+    modalColores.style.opacity = "1";
+    modalColores.style.visibility = "visible";
+})
+
+document.getElementById("cerrarColores").addEventListener("click",()=>{
+    modalColores.style.opacity = "0";
+    modalColores.style.visibility = "hidden";
+})
+
+const colorJugador = document.getElementById("colorJugador");
+for (const i of document.getElementsByClassName("colorEleccion")) {
+    i.addEventListener("click", ()=>{
+        colorJugador.style.backgroundColor = i.style.backgroundColor;
+        colorJugador.setAttribute("value", i.style.backgroundColor);
+        colorJugador.innerHTML = "";
+        modalColores.style.opacity = "0";
+        modalColores.style.visibility = "hidden";
+    })
+}
+
+
+//-------------------------GUARDAR CONF JUGADOR-------------------------
+
 let valorNombre;
 btnGuardarCJ.addEventListener("click", ()=>{
     valorNombre = nombreJugador.value;
     const facc = faccionJugador.value;
+    const color = colorJugador.style.backgroundColor;
     nombreJugador.setAttribute("value", valorNombre);
     usuarioH4.innerHTML = valorNombre;
     switch(liActual){
         case 1:
             liBusqueda1.innerHTML = valorNombre;
             liBusqueda1.setAttribute("idCivilizacion", facc);
+            liBusqueda1.setAttribute("color", color);
             break;
         case 2:
             liBusqueda2.innerHTML = valorNombre;
             liBusqueda2.setAttribute("idCivilizacion", facc);
+            liBusqueda2.setAttribute("color", color);
             break;
         case 3:
             liBusqueda3.innerHTML = valorNombre;
             liBusqueda3.setAttribute("idCivilizacion", facc);
+            liBusqueda3.setAttribute("color", color);
             break;
         case 4:
             liBusqueda4.innerHTML = valorNombre;
             liBusqueda4.setAttribute("idCivilizacion", facc);
+            liBusqueda4.setAttribute("color", color);
             break;
     }
 
@@ -202,10 +247,13 @@ btnGuardarCJ.addEventListener("click", ()=>{
             "idPartida" : idPartida,
             "jugador" : liActual,
             "nickname" : valorNombre,
-            "faccion" : facc
+            "faccion" : facc,
+            "color" : color
         }
     })
 })
+
+//-------------------------REGISTRO JUGADOR-------------------------
 
 document.getElementById("btnRegistro").addEventListener("click", ()=>{
     const contenedorRegistro = document.getElementById("contenedorRegistro");

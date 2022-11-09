@@ -143,23 +143,24 @@ $(document).ready(function() {
                 $('#jugador1').html(jugador1[1]);
                 $('#jugador2').html(jugador2[1]);
                 
-                document.getElementById("jugador1").style.color = jugador1[2] + "b6";
-                document.getElementById("jugador2").style.color = jugador2[2] + "b6";
+                document.getElementById("jugador1").style.color = jugador1[2].substr(0, jugador1[2].length - 5) + "0.714)";
+                document.getElementById("jugador2").style.color = jugador2[2].substr(0, jugador2[2].length - 5) + "0.714)";
                 
+                nombreJugadorTurno.style.color = colorActual;
                 $('#nombreJugadorTurno').html(jugador1[1]);
                 
                 if (cantJugadores == 3) {
                     jugador3 = [jugadores[2]['numJugador'], jugadores[2]['nickname'], jugadores[2]['color']];
                     $('#jugador3').html(jugador3[1]);
-                    document.getElementById("jugador3").style.color = jugador3[2] + "b6";
+                    document.getElementById("jugador3").style.color = jugador3[2].substr(0, jugador3[2].length - 5) + "0.714)";
                 }
                 if (cantJugadores == 4) {
                     jugador3 = [jugadores[2]['numJugador'], jugadores[2]['nickname'], jugadores[2]['color']];
                     jugador4 = [jugadores[3]['numJugador'], jugadores[3]['nickname'], jugadores[3]['color']];
                     $('#jugador3').html(jugador3[1]);
                     $('#jugador4').html(jugador4[1]);
-                    document.getElementById("jugador3").style.color = jugador3[2] + "b6";
-                    document.getElementById("jugador4").style.color = jugador4[2] + "b6";
+                    document.getElementById("jugador3").style.color = jugador3[2].substr(0, jugador3[2].length - 5) + "0.714)";
+                    document.getElementById("jugador4").style.color = jugador4[2].substr(0, jugador4[2].length - 5) + "0.714)";
                 }
             }
         })
@@ -331,16 +332,16 @@ $(document).ready(function() {
 function cambiarColorTerritorio(t) {
     switch (t.getAttribute("value")) {
         case jugador1[0]:
-            t.style.fill = jugador1[2] + "55";
+            t.style.fill = jugador1[2].substr(0, jugador1[2].length - 5) + "0.333)";
             break;
         case jugador2[0]:
-            t.style.fill = jugador2[2] + "55";
+            t.style.fill = jugador2[2].substr(0, jugador2[2].length - 5) + "0.333)";
             break;
         case jugador3[0]:
-            t.style.fill = jugador3[2] + "55";
+            t.style.fill = jugador3[2].substr(0, jugador3[2].length - 5) + "0.333)";
             break;
         case jugador4[0]:
-            t.style.fill = jugador4[2] + "55";
+            t.style.fill = jugador4[2].substr(0, jugador4[2].length - 5) + "0.333)";
             break;
         default:
             t.style.fill = "#0000001";
@@ -780,7 +781,7 @@ btnRespuesta4.addEventListener("click", ()=>{
         btnRespuesta4.style.backgroundColor = "green";
         territorioActual.setAttribute("value", idActual);
         cambiarColorTerritorio(territorioActual);
-        mensajeTexto("<span style='color:blue'>" + jugadorActual + "</span> ha conquistado el territorio <span style='color:red'>" + territorioActual.getAttribute('idT') + "</span>" + "<br>");
+        mensajeTexto("<span style='color:" + colorActual + "'>" + jugadorActual + "</span> ha conquistado el territorio <span style='color:red'>" + territorioActual.getAttribute('idT') + "</span>" + "<br>");
         darTerritorio(idActual, territorioActual.getAttribute("idT"), idPartida, 3);
     }else{
         btnRespuesta4.style.backgroundColor = "red";
