@@ -249,6 +249,11 @@ btnGuardarCJ.addEventListener("click", ()=>{
             "nickname" : valorNombre,
             "faccion" : facc,
             "color" : color
+        },
+        success: function(response) {
+            if(response == 2){
+                alert("Ingrese facción y color del jugador");
+            }
         }
     })
 })
@@ -286,6 +291,10 @@ document.getElementById("btnRegistrarse").addEventListener("click",()=>{
                 contenedorRegistro.style.opacity = "0";
                 contenedorRegistro.style.zIndex = "0";
                 contenedorRegistro.style.visibility = "hidden";
+
+                document.getElementById("nombre").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("pass").value = "";
 
                 alert("Se creó el usuario correctamente");
             }else{

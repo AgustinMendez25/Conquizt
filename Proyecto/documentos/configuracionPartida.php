@@ -69,7 +69,6 @@
         <div class="infoDerecha">
             <div class="detallesCard" id="detallesFaccion">
                 <h4 id="tituloFaccion">Detalles de la Facción</h4>
-                <img src="../img/duelo.jpg" alt="" width="240px">
                 <p id="descripcionFaccion">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, blanditiis nihil ad beatae doloribus ducimus obcaecati esse impedit maiores tempore debitis doloremque illum quas placeat dolor nesciunt?.</p>
             </div>
             <div class="detallesCard" id="detallesUsuario">

@@ -17,6 +17,17 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    background: url("../img/menu/Fondo.png");
+    background-size: cover;
+}
+
+.ramas{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: url("../img/menu/Arboles.png");
+    z-index: 10000;
+    pointer-events: none;
 }
 
 /*Circulo Principal*/
@@ -25,12 +36,15 @@ body{
     margin-top:30px;
     margin-bottom:20px;
     margin-left:25px;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:#093b62;
-    box-shadow:inset 0px 0px 30px rgba(0,0,0,0.3);
+    width:700px;
+    height:700px;
     animation: rotar 14s linear infinite;
+}
+
+#circleMenu {
+    background: url("../img/menu/Rueda.png");
+    background-size: cover;
+    background-position: -420px;
 }
 
 @keyframes rotar {
@@ -43,6 +57,11 @@ body{
     }
 }
 
+@font-face {
+    font-family: "fuenteli";
+    src: url(../Fuentes/Seagram.ttf);
+}
+
 /*Mini Circulos*/
 .circle li{
     position:absolute;
@@ -51,24 +70,25 @@ body{
     border-radius:50%;
     list-style:none;
     text-align:center;
+    font-family: "fuenteli";
     /*animation: rotar 8s linear  infinite;*/
 }
 
 .circle .letra{
-    font:36px Helvetica,Arial,sans-serif;
-    color: #e0dcdc;
+    font-size:42px;
+    color: #000000;
 }
 
 .circle #li-1{
     top:50%;
     left:50%;
     margin-left: -100px;
-    margin-top: -240px;
+    margin-top: -260px;
 }
 .circle #li-2{
     top:50%;
     left:50%;
-    margin-left: 115px;
+    margin-left: 145px;
     margin-top: -25px;
     transform:rotate(90deg);
 }
@@ -76,13 +96,13 @@ body{
     top:50%;
     left:50%;
     margin-left: -100px;
-    margin-top: 190px;
+    margin-top: 230px;
     transform:rotate(180deg);   
 }
 .circle #li-4{
     top:50%;
     left:50%;
-    margin-left: -315px;
+    margin-left: -340px;
     margin-top: -25px;
     transform:rotate(270deg);
 }
@@ -103,6 +123,5 @@ body{
     width:380px;
     height:380px;
     border-radius:50%;
-    background:linear-gradient(red,green);
     animation: rotar 14s linear reverse infinite;
 }

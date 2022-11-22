@@ -8,7 +8,7 @@
 body {
     overflow-y: hidden;
     overflow-x: hidden;
-    background-image: url(../img/fondo.jpg);
+    background-image: url(../img/Fondo-Papel.png);
 }
 
 input[type="button"]{
@@ -45,6 +45,7 @@ input[type="button"]{
     cursor:pointer;
     top:50%;
     left:50%;
+    pointer-events:all;
 }
 
 /*
@@ -91,18 +92,26 @@ input[type="button"]{
 }
 
 .seleccion{
+    top:0;
     width: 50%;
     display: flex;
     justify-content: center;
     position: relative;
+    background-image: url("../img/menu/SolJapones.png");
+    background-size:cover;
+    background-position-x: 3px;
 }
 
 /*--Rueda facciones--*/
 
 .rueda-facciones{
-    width:600px;
-    height:600px;
     animation: rotar 24s reverse linear infinite;
+    background: url("../img/menu/Circulo-Griego.png");
+    background-size:cover;
+    background-position: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .faccion-li {
@@ -111,63 +120,66 @@ input[type="button"]{
     justify-content: center;
     font:26px Helvetica,Arial,sans-serif;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.644);
-    background-color: #d8d2d2;
-    height: 80px!important;
-    width: 80px!important;
+    background-color: #f3efef;
+    height: 60px!important;
+    width: 60px!important;
     cursor:pointer;
 }
 
 .rueda-facciones #li-faccion-1{
     top:50%;
     left:50%;
-    margin-left: -195px;
-    margin-top: -235px;
-    transform:rotate(-30deg);
+    margin-left: -181px;
+    margin-top: -205px;
+    transform:rotate(-40deg);
 }
 .rueda-facciones #li-faccion-2{
     top:50%;
     left:50%;
-    margin-left: 113px;
-    margin-top: -238px;
-    transform:rotate(30deg);
+    margin-left: 118px;
+    margin-top: -205px;
+    transform:rotate(40deg);
 }
 .rueda-facciones #li-faccion-3{
     top:50%;
     left:50%;
-    margin-left: 211px;
+    margin-left: 200px;
     margin-top: -25px;
     transform:rotate(90deg);   
 }
 .rueda-facciones #li-faccion-4{
     top:50%;
     left:50%;
-    margin-left: -292px;
+    margin-left: -261px;
     margin-top: -25px;
     transform:rotate(270deg);
 }
 .rueda-facciones #li-faccion-5{
     top:50%;
     left:50%;
-    margin-left: -192px;
-    margin-top: 160px;
+    margin-left: -181px;
+    margin-top: 143px;
     transform:rotate(210deg);
 }
 .rueda-facciones #li-faccion-6{
     top:50%;
     left:50%;
-    margin-left: 112px;
-    margin-top: 160px;
-    transform:rotate(150deg);
+    margin-left: 118px;
+    margin-top: 143px;
+    transform:rotate(140deg);
 }
 
 /*--Circulo Chico jugadores de la partida--*/
 
 .circulo-jugadores{
     animation: rotar 14s linear infinite;
-    margin-top:103px;
-    margin-left:103px;
-    width:401px;
-    height: 401px;
+    margin:20px;
+    width: 400px;
+    height: 400px;
+    background-image: url("../img/menu/Runas.png");
+    background-size:cover;
+    background-position: center;
+    pointer-events:none;
 }
 
 /*--Circulo Chico Conf del jugador--*/
@@ -181,11 +193,10 @@ input[type="button"]{
     flex-direction: column;
     top: 50%;
     left:50%;
-    background-color: #141414;
-    width: 290px;
-    height: 290px;
-    margin-left: -128px;
-    margin-top: -134px;
+    width: 268px;
+    height: 268px;
+    margin-left: -122px;
+    margin-top: -129px;
     border-radius: 50%;
     animation: none /*-----------*/
 }
@@ -194,7 +205,7 @@ input[type="button"]{
     font:22px Helvetica,Arial,sans-serif;
     color:white;
     width: 220px;
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(0, 0, 0, 0.356);
     padding: 8px 0;
     border: none;
     border-bottom: 2px solid rgb(185, 181, 181);
@@ -338,7 +349,24 @@ input[type="button"]{
 }
 
 #detallesFaccion{
-    height: 70%;
+    /*height: 70%;*/
+    height:360px;
+    width: 500px;
+    background-image: url("../img/descripcionFaccion.png");
+    background-size: cover;
+    background-position-x: -25px;
+}
+
+#detallesFaccion h4{
+    color:rgb(184, 129, 87);
+    text-shadow: 1px 1px 2px black;
+    padding-top:0;
+}
+
+#detallesFaccion p{
+    margin: 0 56px;
+    margin-top: 24px;
+    font-size:14px;
 }
 
 #detallesUsuario input[type="text"], #detallesUsuario input[type="password"], #detallesUsuario input[type="email"], #tarjetaRegistro input{

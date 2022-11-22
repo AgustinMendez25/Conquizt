@@ -669,6 +669,19 @@ function darTerritorio(jugador, idTerritorio, idPartida, ptsSumados){
         success: function(response){
             let resultado = JSON.parse(response);
             let soldados = resultado[0]['soldados'];
+            
+            /*
+            const nombreT = "Vector_" + idTerritorio;
+            const posicion = document.getElementById(nombreT).getBoundingClientRect();
+            console.log(posicion['x']);
+            
+            const imagen = document.createElement("img");
+            imagen.setAttribute("src", "../img/duelo.jpg");
+            imagen.style.width = "200px";
+            imagen.style.height = "200px";
+            imagen.style.postion = "absolute";
+            imagen.style.left = posicion['x'];
+            document.getElementById("estandartes").appendChild(imagen);*/
 
             const e = document.getElementById('soldadosAgregados');
             e.innerHTML = "+" + soldados;

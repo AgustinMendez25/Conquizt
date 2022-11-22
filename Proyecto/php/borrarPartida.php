@@ -19,13 +19,13 @@
     if(!$result2) {
         die ('Query Error'.mysqli_error($conexion));
     }*/
-
+/*
     $query3 = "delete from territorioporpartida where idPartida = " . $idPartida;
 
     $result3 = mysqli_query($conexion, $query3);
 
     if(!$result3) {
         die ('Query Error'.mysqli_error($conexion));
-    }
+    }*/
 
 ?>
